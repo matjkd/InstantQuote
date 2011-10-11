@@ -7,8 +7,13 @@ class Quote extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('template/ker');
+            $data['title'] = "Kenneth Elliott and Rowe Conveyancing Quote Calculator";
+            $data['main'] = "quote/main";
+            $this->load->vars($data);
+            $this->load->view('template/ker');
 	}
+
+        
 }
 
 /* End of file welcome.php */

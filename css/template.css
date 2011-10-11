@@ -1,0 +1,30 @@
+/* 
+    Document   : template.css
+    Created on : 20-Sep-2011, 14:06:35
+    Author     : mat
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.form {
+
+    border:1px solid #333333;
+    margin-bottom: 5px;
+    padding:5px;
+}
+#conveyancing {
+
+    width:210px;
+    border:0px solid #333333;
+    padding:5px;
+    background: #e5efff;
+    -moz-box-shadow: 2px 1px 5px #555555;
+-webkit-box-shadow: 2px 1px 5px #555555;
+box-shadow: 2px 1px 5px #555555;
+}
+
