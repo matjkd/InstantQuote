@@ -18,7 +18,11 @@
   <!-- CSS concatenated and minified via ant build script-->
   <link rel="stylesheet" href="<?=base_url()?>css/960_12_col.css">
   <link rel="stylesheet" href="<?=base_url()?>css/style.css">
-  <link rel="stylesheet" href="<?=base_url()?>css/template.css">
+  
+    <link rel="stylesheet" href="<?=base_url()?>css/redmond/jquery-ui-1.8.16.custom.css">
+    <link rel="stylesheet" href="<?=base_url()?>css/demo_table.css">
+    <link rel="stylesheet" href="<?=base_url()?>css/demo_table_jui.css">
+    <link rel="stylesheet" href="<?=base_url()?>css/template.css">
   <!-- end CSS-->
 
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->

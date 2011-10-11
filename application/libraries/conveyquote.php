@@ -4,6 +4,7 @@ class ConveyQuote {
 
     public function quote()
     {
+        
     }
 }
 

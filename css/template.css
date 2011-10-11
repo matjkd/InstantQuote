@@ -10,7 +10,12 @@
    TODO customize this sample style
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
-
+.dataTables_wrapper {
+	position: relative;
+	min-height: 0px;
+	_height: 0px;;
+	clear: both;
+}
 .form {
 
     border:1px solid #333333;
@@ -23,8 +28,18 @@
     border:0px solid #333333;
     padding:5px;
     background: #e5efff;
+
     -moz-box-shadow: 2px 1px 5px #555555;
 -webkit-box-shadow: 2px 1px 5px #555555;
 box-shadow: 2px 1px 5px #555555;
 }
 
+.field_label {
+width:200px;
+padding:3px;
+    float:left;
+}
+.edit {
+    float:left;
+    width:100px;
+}

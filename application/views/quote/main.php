@@ -1,7 +1,7 @@
 <h2>Get a conveyancing Quote</h2>
 
 <div id="conveyancing">
-    <?=form_open()?>
+    <?=form_open('quote/calculate')?>
         <div class="form" id="buying">
 
            <p>
@@ -10,11 +10,11 @@
            </p>
 
             <p><strong>Freehold/LeaseHold</strong><br/>
-             <?=form_radio('leasehold', 'accept', TRUE);?>Leasehold <?=form_radio('leasehold', 'accept', FALSE);?>Freehold
+             <?=form_radio('leasehold', 'leasehold', TRUE);?>Leasehold <?=form_radio('leasehold', 'freehold', FALSE);?>Freehold
             </p>
 
              <p><strong>Are you obtaining a Mortgage</strong><br/>
-              <?=form_radio('mortgage', 'accept', TRUE);?>yes <?=form_radio('mortgage', 'accept', FALSE);?>no
+              <?=form_radio('mortgage', '1', TRUE);?>yes <?=form_radio('mortgage', '0', FALSE);?>no
              </p>
 
         </div>
@@ -25,9 +25,9 @@
                <?=form_input('selling_price')?>
              </p>
              <p><strong>Freehold/LeaseHold</strong><br/>
-                  <?=form_radio('leaseholdsale', 'accept', TRUE);?>Leasehold <?=form_radio('leaseholdsale', 'accept', FALSE);?>Freehold
+                  <?=form_radio('leaseholdsale', 'leasehold', TRUE);?>Leasehold <?=form_radio('leaseholdsale', 'freehold', FALSE);?>Freehold
              </p>
-<?=form_button('submit', 'Submit')?>
+<?=form_submit('submit', 'Submit')?>
         </div>
     <?=form_close()?>
 </div>
