@@ -12,15 +12,42 @@
 <body>
 
   <div id="container">
-    <header>
-<?=$this->load->view('login/login_box')?>
-    </header>
-    <div id="main" class="container_12" role="main">
-        <?=$this->load->view($main)?>
+    <div class="container_12" role="main">
+   <div class="grid_12"  id="header">
+         <img src="<?=base_url()?>images/titles/logo.png" alt="get a conveyancing quote"/>
+        </div>
     </div>
-    <footer>
 
-    </footer>
+      <div  class="container_12" role="main">
+        <div class="grid_12" id="menu">
+             <div id="top_menu">
+              <?=$this->load->view('global/menu')?>
+             </div>
+        </div>
+    </div>
+<div class="clear"></div>
+    <div id="main" class="container_12" role="main">
+
+        <div class="grid_3">
+           <?=$this->load->view('global/sidebar')?>
+        </div>
+
+            <div class="grid_9">
+           <?=$this->load->view($main)?>
+        </div>
+     
+
+
+
+    </div>
+
+        <div class="container_12" role="main">
+     <div class="grid_12"  id="footer">
+
+        </div>
+        </div>
+<?=$this->load->view('login/login_box')?>
+
   </div> <!--! end of #container -->
 
 <?=$this->load->view('global/footer')?>

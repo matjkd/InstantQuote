@@ -1,15 +1,7 @@
-/* 
-    Document   : template.css
-    Created on : 20-Sep-2011, 14:06:35
-    Author     : mat
-    Description:
-        Purpose of the stylesheet follows.
-*/
+body {
 
-/* 
-   TODO customize this sample style
-   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
-*/
+    color:#555555;
+}
 .dataTables_wrapper {
 	position: relative;
 	min-height: 0px;
@@ -18,20 +10,125 @@
 }
 .form {
 
-    border:1px solid #333333;
+    border:0px solid #333333;
     margin-bottom: 5px;
     padding:5px;
 }
+.form input {
+    border:0px;
+
+}
+#top_menu ul {
+padding:0 0 0 20px;
+  line-height:0.8px;
+}
+#top_menu {
+float:left;
+color:#ffffff;
+}
+#top_menu li {
+line-height:0.8px;
+display:inline;
+padding-right:25px;
+padding-top:0px;
+margin-top:0px;
+}
+
+#top_menu a {
+text-decoration:none;
+color: #ffffff;
+}
+#footer {
+    border-top: 1px solid;
+margin-top:10px;
+}
+
+
+#header {
+    height:80px;
+}
+#header img {
+    padding-top:25px;
+}
+.submitbutton {
+
+    background-color:#1a7fb4;
+    width:100%;
+    color:#ffffff;
+    border:0px;
+     padding:5px;
+      -moz-box-shadow: 2px 1px 5px #555555;
+-webkit-box-shadow: 2px 1px 5px #555555;
+box-shadow: 2px 1px 5px #555555;
+}
 #conveyancing {
 
-    width:210px;
+    width:220px;
+    
     border:0px solid #333333;
     padding:5px;
-    background: #e5efff;
-
+    background: #c7d0d6;
+margin-bottom:10px;
     -moz-box-shadow: 2px 1px 5px #555555;
 -webkit-box-shadow: 2px 1px 5px #555555;
 box-shadow: 2px 1px 5px #555555;
+}
+#callus {
+     width:220px;
+
+    border:0px solid #333333;
+    padding:5px;
+    background: #1a7fb4;
+text-align:center;
+    -moz-box-shadow: 2px 1px 5px #555555;
+-webkit-box-shadow: 2px 1px 5px #555555;
+box-shadow: 2px 1px 5px #555555;
+
+}
+
+.fees {
+
+    float:left;
+    display:block;
+    position:relative;
+    width:345px;
+   
+    padding:0px;
+    margin-right:10px;
+    border:0px solid;
+
+}
+#noright {
+    margin-right:0px;
+}
+
+
+.fees h1, .singlefees h1{
+    margin-top:0px;
+    padding:5px;
+    height:23px;
+    -moz-box-shadow: 2px 1px 5px #555555;
+-webkit-box-shadow: 2px 1px 5px #555555;
+box-shadow: 2px 1px 5px #555555;
+background:#1a7fb4;
+color:#ffffff;
+vertical-align: top;
+
+}
+.fees img, .singlefees img {
+
+    vertical-align: top;
+}
+.singlefees{
+   float:left;
+    display:block;
+        position:relative;
+    width:700px;
+    
+    padding:0px;
+    margin-left:0px;
+    border:0px solid;
+   
 }
 
 .field_label {
@@ -42,4 +139,62 @@ padding:3px;
 .edit {
     float:left;
     width:100px;
+}
+#menu {
+
+    background-color:#595959;
+    height:28px;
+    margin-bottom:10px;
+}
+.results {
+    clear:both;
+    width:345px;
+}
+.results p {
+
+    margin-top:0px;
+    margin-bottom:0px;
+
+}
+.results h2 {
+
+    font-size: 1.2em;
+    color:#888888;
+}
+.resultvalue {
+    float:left;
+    width:75px;
+    padding:2px;
+  background-color: #eaeaea;
+margin-bottom:2px;
+}
+.resultlabel {
+color:#0088CF;
+background-color: #eaeaea;
+margin-bottom:2px;
+padding:2px;
+ width:262px;
+ float:left;
+}
+.blanklabel {
+color:#0088CF;;
+margin-bottom:2px;
+padding:2px;
+ width:270px;
+ float:left;
+}
+#total{
+    font-weight: bolder;
+
+}
+#grandtotal {
+    clear:both;
+    color:#ffffff;
+    font-size:1.7em;
+    font-weight: bolder;
+    height:30px;
+    width:690px;
+    padding:5px;
+    background-color:#595959;
+  margin:10px 0 0 0;
 }
