@@ -92,7 +92,7 @@ function __construct()
 		$this->form_validation->set_rules('firstname', 'Name', 'trim|required');
 		$this->form_validation->set_rules('lastname', 'Last Name', 'trim|required');
 		//$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email');
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]');
+		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[32]');
 		$this->form_validation->set_rules('password2', 'Password Confirmation', 'trim|required|matches[password]');
 		
@@ -144,10 +144,10 @@ function __construct()
 	function is_logged_in()
 	{
 		$is_logged_in = $this->session->userdata('is_logged_in');
-		if(!isset($is_logged_in))
+		if($is_logged_in==NULL)
 		{
-                    echo $is_logged_in;
-			//redirect('welcome/');
+                //    echo $is_logged_in;
+			redirect('/');
 		}		
 	}	
 

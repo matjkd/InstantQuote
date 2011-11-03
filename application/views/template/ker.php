@@ -22,17 +22,20 @@
         <div class="grid_12" id="menu">
              <div id="top_menu">
               <?=$this->load->view('global/menu')?>
+                 
              </div>
+            
         </div>
     </div>
 <div class="clear"></div>
     <div id="main" class="container_12" role="main">
-
+  
         <div class="grid_3">
            <?=$this->load->view('global/sidebar')?>
         </div>
 
             <div class="grid_9">
+                <?=$this->load->view('global/warning')?>
            <?=$this->load->view($main)?>
         </div>
      

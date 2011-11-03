@@ -1,12 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Quote extends CI_Controller {
+class Quote extends MY_Controller {
 
     function __construct()
 	{
-		parent::__construct();
+	parent::__construct();
                 $this->load->model('admin_model');
-
+                $this->load->model('content_model');
+                $this->load->library('user_agent');
 	}
 
 	/**
@@ -20,12 +21,12 @@ class Quote extends CI_Controller {
             $this->load->view('template/ker');
 	}
 
-        public function calculate($purchase, $leasehold, $mortgage, $salecost, $leaseholdsale)
+        public function calculate($purchase, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee)
         {
             /* Add form validation here*/
+           
 
-
-            /* End of Form validateion */
+            /* End of Form validation */
             $vat = 0.2;
             /* Page Title */
             $data['title'] = "Kenneth Elliott and Rowe Conveyancing Quote Calculator";
@@ -72,7 +73,7 @@ class Quote extends CI_Controller {
 
                   
                   $data['landcharge'] = $row->landcharge;
-                  
+                   
                    $data['localsearch'] = $row->localsearch;
                      $data['priority_search'] = $row->priority_search;
 
@@ -104,8 +105,14 @@ class Quote extends CI_Controller {
 
                if($data['purchasecost'] != NULL){
               /*purchase fee*/
-              $data['purchase_fee'] = $this->admin_model->calculate_fee('purchasefee', $data['purchasecost']);
-
+                   if($purchasefee > 0)
+                   {
+                        $data['purchase_fee'] = $purchasefee;
+                   }
+                   else
+                   {
+                    $data['purchase_fee'] = $this->admin_model->calculate_fee('purchasefee', $data['purchasecost']);
+                   }
                /*land registry fee*/
               $data['land_fee'] = $this->admin_model->calculate_fee('landfee', $data['purchasecost']);
 
@@ -113,11 +120,18 @@ class Quote extends CI_Controller {
               $stampduty =  $this->admin_model->calculate_fee('stampfee', $data['purchasecost']);
               $stamp1 =  ((($data['purchasecost']/100)*$stampduty)/5)+0.99;
 	      $data['stamp_fee'] = intval($stamp1)*5;
+              if($data['stamp_fee'] > 0){
+                   $data['stamp_duty_forms'] = $row->stamp_duty_forms;
+              }
+              else
+              {
+                   $data['stamp_duty_forms'] = 0;
+              }
 
               /*TOTAL PURCHASE*/
-              $data['feevat'] =  ($data['purchase_fee']+$data['banktransfer_purchase']+$data['mortgagefee']+$data['leaseholdfee'])*$vat;
+              $data['feevat'] =  ($data['purchase_fee']+$data['banktransfer_purchase']+$data['mortgagefee']+$data['leaseholdfee']+$data['stamp_duty_forms'])*$vat;
                $data['feevat'] = number_format($data['feevat'], 2, '.', '');
-              $data['totalpurchase'] =  $data['purchase_fee']+$data['leaseholdfee']+$data['feevat']+$data['land_fee']+$data['stamp_fee']+$data['banktransfer_purchase']+$data['mortgagefee']+$data['landcharge']+$data['localsearch']+$data['priority_search'];
+              $data['totalpurchase'] =  $data['purchase_fee']+$data['leaseholdfee']+$data['feevat']+$data['land_fee']+$data['stamp_fee']+$data['banktransfer_purchase']+$data['stamp_duty_forms']+$data['mortgagefee']+$data['landcharge']+$data['localsearch']+$data['priority_search'];
               $data['totalpurchase'] = number_format($data['totalpurchase'], 2, '.', '');
 
               $purchasecount = 1;
@@ -153,32 +167,60 @@ class Quote extends CI_Controller {
 
         function onscreen()
         {
+            
+              /*form validation*/
+               if($this->input->post('buying_price') ==NULL && $this->input->post('selling_price')==NULL){
+                       
+                   $data['main'] = "quote/noresults";
+                   
+               }
+               else
+               {
+                    $data['main'] = "quote/results";
+               }
             /* Set the main inputs here*/
              $purchasecost = $this->input->post('buying_price');
              $leasehold = $this->input->post('leasehold');
              $mortgage = $this->input->post('mortgage');
              $salecost = $this->input->post('selling_price');
              $leaseholdsale = $this->input->post('leaseholdsale');
+             $purchasefee = $this->input->post('buying_fees');
+             $salefee = $this->input->post('selling_fees');
 
              /*calculate here*/
-            $this->calculate($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale);
+            $this->calculate($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee);
 
-            $data['main'] = "quote/results";
+           if(isset($this->alertmessage))
+           {
+               $data['message'] =$this->alertmessage;
+           }
             $this->load->vars($data);
             $this->load->view('template/ker');
         }
         
            function printout()
         {
-            /* Set the main inputs here*/
+          
+               
+               
+               /* Set the main inputs here*/
              $purchasecost = $this->input->post('buying_price');
              $leasehold = $this->input->post('leasehold');
              $mortgage = $this->input->post('mortgage');
              $salecost = $this->input->post('selling_price');
              $leaseholdsale = $this->input->post('leaseholdsale');
+              $purchasefee = $this->input->post('buying_fees');
+             $salefee = $this->input->post('selling_fees');
 
+             /* Get terms */
+             $data['content'] =$this->content_model->get_content('terms');
+             foreach($data['content'] as $terms):
+    
+    $data['terms'] = $terms->content;
+    
+endforeach;
              /*calculate here*/
-            $this->calculate($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale);
+            $this->calculate($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee);
             $this->load->helper(array('dompdf', 'file'));
 
           $data['main'] = "quote/results";
@@ -186,7 +228,93 @@ class Quote extends CI_Controller {
             	$stream = TRUE;
 		$html = $this->load->view('template/pdf', $data, true);
 		pdf_create($html, 'quote', $stream);
+                
+                 
+            
         }
+function instruct()
+{
+    //Validate Form here
+           $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+           $this->form_validation->set_rules('firstname', 'Firstname', 'trim|required');
+           $this->form_validation->set_rules('lastname', 'Lastname', 'trim|required');
+           $this->form_validation->set_rules('comments', 'comments', 'trim');
+		if($this->form_validation->run() == FALSE)
+			{
+			$this->session->set_flashdata('message', validation_errors());
+                                                $this->alertmessage =validation_errors();
+			$this->onscreen();
+                        
+			}
+    else
+    {
+    
+    /* Set the main inputs here*/
+             $purchasecost = $this->input->post('buying_price');
+             $leasehold = $this->input->post('leasehold');
+             $mortgage = $this->input->post('mortgage');
+             $salecost = $this->input->post('selling_price');
+             $leaseholdsale = $this->input->post('leaseholdsale');
+              $purchasefee = $this->input->post('buying_fees');
+             $salefee = $this->input->post('selling_fees');
+
+             /* Get terms */
+             $data['content'] =$this->content_model->get_content('terms');
+             foreach($data['content'] as $terms):
+    
+    $data['terms'] = $terms->content;
+    
+endforeach;
+             /*calculate here  */  
+            $this->calculate($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee);
+            $this->load->helper(array('dompdf', 'file'));
+            $this->load->helper('file');
+         
+            $data['main'] = "quote/results";
+            $this->load->vars($data);
+            	$stream = FALSE;
+		$html = $this->load->view('template/pdf', $data, true);
+		$data1 = pdf_create($html, 'quote', $stream);
+                
+                 
+            write_file('./images/reports/quote.pdf', $data1);
+            
+                
+                          
+    
+    //TEMP
+    $email_address = "test@matsadler.com";
+    
+    $this->load->library('postmark');
+		
+				
+		$config_email = $this->config_email;
+		$config_company_name = $this->config_company_name;
+		
+		$this->postmark->from($config_email, $config_company_name);
+		$this->postmark->to($email_address);
+		$this->postmark->cc($config_email);
+		$this->postmark->subject('Your Quote');
+                
+                                //get content for the email
+		$email['content'] = $this->content_model->get_content('yourquote');
+                                $this->load->vars($email);
+		$msg = $this->load->view('template/email', $email, true);
+		$this->postmark->message_html($msg);
+		
+		
+		$this->postmark->attach('./images/reports/quote.pdf');
+		
+		$this->postmark->send();
+		delete_files('./images/reports/');
+
+                
+                $this->session->set_flashdata('message', 'Email Sent');
+                                                $this->alertmessage = 'Email has been sent';
+		$this->onscreen();
+    }
+}
+
 
         function pdf()
         {

@@ -42,6 +42,8 @@ if($purchasecost != NULL) { ?>
 <div class="resultlabel">for acting for your mortgage lender</div>
 <div class="resultvalue">£<?=$mortgagefee?></div>
 
+<div class="resultlabel">Completing Stamp Duty Forms</div>
+<div class="resultvalue">£<?=$stamp_duty_forms?></div>
 
 <div class="resultlabel">VAT </div>
 <div class="resultvalue">£<?=$feevat?></div>
@@ -66,7 +68,7 @@ if($purchasecost != NULL) { ?>
 <div class="resultvalue">£<?=$priority_search?></div>
 
 
-<div class="resultlabel">Land Charges</div>
+<div class="resultlabel">Land Charges Search (per person)</div>
 <div class="resultvalue">£<?=$landcharge?></div>
 
   <div class="resultlabel" id="total">Sub Total</div>
@@ -111,6 +113,7 @@ if($salecost != NULL) {
 
 </div>
 <div class="blanklabel">&nbsp;</div>
+<div class="blanklabel">&nbsp;</div>
 <div class="results">
 <strong>Other Costs</strong><br/>
 
@@ -131,6 +134,16 @@ if($salecost != NULL) {
 
 <div class="clear"></div>
 
-<div id="grandtotal">Total of our fees and expenses £<?=$grandtotal?></div>
-
+<div id="grandtotal">
+    <div style="width:550px;  float:left; ">  
+    Total of our fees and expenses £<?=$grandtotal?>
+    </div>
+<div style="width:100px;  float:right; font-size:14px;">  
 <?=$this->load->view('global/printbutton')?>
+</div>
+
+</div>
+
+<?=$this->load->view('quote/instruct')?>
+
+<?=$this->load->view('quote/emailquote')?>

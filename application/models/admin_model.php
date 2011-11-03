@@ -5,7 +5,7 @@ class Admin_model extends CI_Model {
 	 function __construct()
     {
         parent::__construct();
-
+       
     }
 	function get_fees($feetype)
         {
@@ -36,12 +36,21 @@ class Admin_model extends CI_Model {
         function get_variables()
         {
             
-                $this->db->select('banktransfer_purchase, banktransfer_sale, mortgage_fee, leasehold_purchase, leasehold_sale, localsearch, priority_search, landcharge, office_copy');
+                $this->db->select('banktransfer_purchase, banktransfer_sale, mortgage_fee, leasehold_purchase, leasehold_sale, localsearch, priority_search, landcharge, office_copy, stamp_duty_forms');
             	$query = $this->db->get('variables');
 		if($query->num_rows == 1);
 			{
 				return $query->result();
 			}
+        }
+        function edit_variable($id, $field, $value)
+        {
+            $update_data = array(
+					$field => $value
+					);
+		$this->db->where('variable_id', $id);
+		$update = $this->db->update('variables', $update_data);
+		return $update;
         }
 
         function add_fee()
@@ -62,6 +71,17 @@ class Admin_model extends CI_Model {
             $this->db->delete('fees');
 
         }
+        function get_admin($id)
+	{
+			
+		$this->db->where('admin_id', $id);
+		$query = $this->db->get('admin');
+		if($query->num_rows == 1);
+			{
+				return $query->result();
+			}
+		
+	}
 
 
        

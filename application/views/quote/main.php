@@ -20,6 +20,20 @@
    <?php if($mortgage!=1) { $mortgage=NULL; $mortgageno=1; } else { $mortgageno = 0; }  ?>
               <?=form_radio('mortgage', '1', $mortgage);?>yes <?=form_radio('mortgage', '0', $mortgageno);?>no
              </p>
+             
+            <?php $is_logged_in = $this->session->userdata('is_logged_in');
+                $level = $this->session->userdata('role');
+
+		if($is_logged_in!=NULL || $level == 1)
+		{ ?>
+                 	
+           <p>
+               <strong>Buying Fees(admin only)</strong><br/>
+               <?php $purchase_fee=NULL; ?>
+               <?=form_input('buying_fees', $purchase_fee)?>
+           </p>
+           
+           <?php } ?> 
 
         </div>
 
@@ -34,6 +48,22 @@
              <?php if($leaseholdsale!='leasehold') { $leaseholdsaleyes=0; $leaseholdsaleno=1; } else { $leaseholdsaleyes=1; $leaseholdsaleno = 0; }  ?>
                   <?=form_radio('leaseholdsale', 'leasehold', $leaseholdsaleyes);?>Leasehold <?=form_radio('leaseholdsale', 'freehold', $leaseholdsaleno);?>Freehold
              </p>
+             
+                <?php $is_logged_in = $this->session->userdata('is_logged_in');
+                $level = $this->session->userdata('role');
+
+		if($is_logged_in!=NULL || $level == 1)
+		{ ?>
+                 	
+           <p>
+               <strong>Selling Fees(admin only)</strong><br/>
+               <?php  $sale_fee=NULL;  ?>
+               <?=form_input('selling_fees', $sale_fee)?>
+           </p>
+           
+           <?php } ?> 
+             
+             
 <button type="submit" name="submit" value="Get an Instant Quote" class="submitbutton"><img src="<?=base_url()?>images/titles/get_your_free_quote.png" alt="get your free quote"/></button>
         </div>
     <?=form_close()?>
