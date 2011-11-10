@@ -3,7 +3,7 @@
 
 
 
-<div id="dialog" title="Instruct Us">
+<div id="dialog" title="Instruct Us" style="display:none;">
    
     <?=form_open('quote/instruct')?>
         <div class="form" id="instruct">

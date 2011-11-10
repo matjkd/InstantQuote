@@ -46,6 +46,7 @@ function __construct()
 						$user_firstname = $row->firstname;
 						$user_lastname = $row->lastname;
 						$company_id = $row->company_id;
+                                                                                                $email = $row->email;
 					}
 			}
 			
@@ -56,7 +57,8 @@ function __construct()
 				'company_id' => $company_id,
 				'firstname' => $user_firstname,
 				'lastname' => $user_lastname,
-				'is_logged_in' => true,
+                                                                'email' => $email,
+				'is_logged_in' => true
 			
 				
 			);

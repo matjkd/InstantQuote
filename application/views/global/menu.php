@@ -11,7 +11,8 @@
 
 		if($is_logged_in!=NULL || $level == 1)
 		{
-                    echo "<li>".anchor('yourquote', 'Email Content')."</li>";
+                    echo "<li>".anchor('yourquote', 'Quote Email')."</li>";
+                      echo "<li>".anchor('instruct', 'Instruct Email')."</li>";
                   echo "<li>".anchor('admin', 'Admin')."</li>";
 		}
                    

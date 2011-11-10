@@ -1,7 +1,25 @@
+html {
+    
+     background: url(../images/background/cloud.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    
+}
+
 body {
 
     color:#6B6475;
     font-family: Arial,Helvetica,"Nimbus Sans L","Liberation Sans",FreeSans,Sans-serif;
+}
+#container {
+    width:960px;
+    background:#ffffff;
+    margin:0px auto;
+       -moz-box-shadow: 5px 4px 15px #555555;
+-webkit-box-shadow: 5px 4px 15px #555555;
+box-shadow: 5px 4px 15px #555555;
 }
 p {
     
@@ -57,14 +75,32 @@ color: #ffffff;
 #footer {
     border-top: 1px solid;
 margin-top:10px;
+background:#242323;
+height:100px;
 }
-
+#infobar {
+    background:#242323;
+    color:#eaeaea;
+    padding:3px 10px 3px 15px;
+}
 
 #header {
     height:80px;
+    padding:0 10px;
+   
 }
 #header img {
-    padding-top:25px;
+    
+}
+#lefttitle {
+    padding-top:18px;
+    float:left;
+}
+
+#righttitle {
+    padding-top:10px;
+    float:right;
+    
 }
 .submitbutton {
 
@@ -157,13 +193,13 @@ padding:3px;
     width:100px;
 }
 #menu {
-
-    background-color:#595959;
-    height:28px;
+margin-left:0px;
+margin-right:0px;
+    background: #242323 ;
+        height:28px;
     margin-bottom:10px;
-       -moz-box-shadow: 2px 1px 5px #555555;
--webkit-box-shadow: 2px 1px 5px #555555;
-box-shadow: 2px 1px 5px #555555;
+    border-bottom:4px solid #1A7FB4;
+      
 }
 .results {
     clear:both;
@@ -231,3 +267,13 @@ box-shadow: 2px 1px 5px #555555;
     height:100px;
       border:1px solid #999999;
 }
+.signinbutton {
+    
+    color:#6B6475;
+    font-size: 11px;
+    text-decoration:none;
+}
+a.signinbutton:link{   color:#6B6475; text-decoration:none;}
+a.signinbutton:visited { color: #6B6475; }
+a.signinbutton:active{   color:#6B6475;}
+a.signinbutton:hover{   color:#1a7fb4;}

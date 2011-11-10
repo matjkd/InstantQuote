@@ -51,7 +51,7 @@ body, button, input, select, textarea { font-family: Arial,Helvetica,"Nimbus San
    ========================================================================== */
 
 a { color: #00e; }
-a:visited { color: #551a8b; }
+a:visited { color: #999999; }
 a:hover { color: #06e; }
 a:focus { outline: thin dotted; }
 

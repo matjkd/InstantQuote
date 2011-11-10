@@ -46,6 +46,7 @@ $route['faq'] = '/welcome/main';
 $route['home'] = '/welcome/main';
 $route['comparequotes'] = '/welcome/main';
 $route['yourquote'] =  '/welcome/main';
+$route['instruct'] =  '/welcome/main';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

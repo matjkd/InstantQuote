@@ -1,6 +1,6 @@
 <button class="submitbutton" id="quoteopener">Email Quote</button>
 
-<div id="quotedialog" title="Email your quote">
+<div id="quotedialog" title="Email your quote" style="display:none;">
    
     <?=form_open('quote/emailquote')?>
         <div class="form" id="instruct">
@@ -8,13 +8,13 @@
            <p>
               First Name*<br/>
              
-               <?=form_input('firstname1', set_value('firstname1'))?>
+               <?=form_input('firstname2', set_value('firstname2'))?>
            </p>
            
              <p>
                Last Name*<br/>
                
-               <?=form_input('lastname2', set_value('lastname1'))?>
+               <?=form_input('lastname2', set_value('lastname2'))?>
            </p>
            <p>
                Email*<br/>
@@ -55,7 +55,7 @@
                      <?php if(!isset($leaseholdsale)) { $leaseholdsale=NULL; } ?>
              <?php if($leaseholdsale!='leasehold') { $leaseholdsaleyes=0; $leaseholdsaleno=1; } else { $leaseholdsaleyes=1; $leaseholdsaleno = 0; }  ?>
   <?=form_hidden('leaseholdsale', $leaseholdsale)?>           
-<button type="submit" name="submit" value="Instruct us" class="submitbutton">Instruct us</button>
+<button type="submit" name="submit" value="email quote" class="submitbutton">Email your quote</button>
 *required
         </div>
     <?=form_close()?>

@@ -74,14 +74,18 @@ table.collapse td {
                 <h2 style="margin-bottom:3px;"> <?php echo $config_company_name; ?></h2>
                 <?php echo $config_address; ?><br/>
 	<?php echo "<strong>t $config_phone</strong>  <br/><strong>e</strong> $config_email  <br/> <strong>w</strong> $config_website"; ?>
+                <br/>
+                Date: <?php  
+                echo $datetime;
+                ?>
             </td>
 	</tr>
 	
 </table>   
 <?php
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * 
+ * 
  */
 if($countfees <= 1){
     $feeclass = "singlefees";

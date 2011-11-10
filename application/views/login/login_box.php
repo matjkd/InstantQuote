@@ -1,3 +1,9 @@
+
+<a href="#" class="signinbutton" id="signin">Sign in</a>
+
+
+
+<div id="signindialog" title="Sign in" style="display:none;">
 <?php
 
 $is_logged_in = $this->session->userdata('is_logged_in');
@@ -20,4 +26,7 @@ $is_logged_in = $this->session->userdata('is_logged_in');
 			echo form_close();
 		}
 			?>
+
+                        
+                        </div>
 

@@ -13,13 +13,17 @@
 
   <div id="container">
     <div class="container_12" role="main">
-   <div class="grid_12"  id="header">
-         <img src="<?=base_url()?>images/titles/logo.png" alt="get a conveyancing quote"/>
+        <div id="infobar">
+        <?=$this->load->view('login/login_box')?>
+        </div>
+   <div   id="header">
+       <div id="lefttitle"><img src="<?=base_url()?>images/titles/logo.png" alt="get a conveyancing quote"/></div>
+        <div  id="righttitle"> <img src="<?=base_url()?>images/logo/logo.png" alt="Kenneth Elliott &amp; Rowe"/></div>
         </div>
     </div>
 
       <div  class="container_12" role="main">
-        <div class="grid_12" id="menu">
+        <div class="ui-dialog-titlebar" id="menu">
              <div id="top_menu">
               <?=$this->load->view('global/menu')?>
                  
@@ -45,14 +49,16 @@
     </div>
 
         <div class="container_12" role="main">
-     <div class="grid_12"  id="footer">
+     <div  id="footer">
 
         </div>
         </div>
-<?=$this->load->view('login/login_box')?>
+
 
   </div> <!--! end of #container -->
+  
 
+  
 <?=$this->load->view('global/footer')?>
 
 

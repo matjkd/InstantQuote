@@ -109,6 +109,19 @@ $(document).ready(function(){
 			return false;
 		});
 	});
+        
+        $(document).ready(function(){
+		$( "#signindialog" ).dialog({
+			autoOpen: false,
+			show: "fade",
+			hide: "fade"
+		});
+
+		$( "#signin" ).click(function() {
+			$( "#signindialog" ).dialog( "open" );
+			return false;
+		});
+	});
 
 
 
