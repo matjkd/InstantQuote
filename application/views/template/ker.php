@@ -50,7 +50,9 @@
 
         <div class="container_12" role="main">
      <div  id="footer">
-
+    	<div class="container_24">
+            <a href="http://www.ker.co.uk">Kenneth Elliott &amp; Rowe Solicitors</a>.  &copy; 2011. Website being developed by <a href="http://www.redstudio.co.uk">Redstudio Design Limited</a>
+		</div>
         </div>
         </div>
 

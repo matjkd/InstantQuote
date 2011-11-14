@@ -236,14 +236,14 @@ class Quote extends MY_Controller {
 
             /* Get terms */
             $data['content'] = $this->content_model->get_content('terms');
-            
+
             foreach ($data['content'] as $terms):
 
                 $data['terms'] = $terms->content;
 
             endforeach;
-            
-            
+
+
             /* calculate here  */
             $this->calculate($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee);
             $this->load->helper(array('dompdf', 'file'));
@@ -270,7 +270,7 @@ class Quote extends MY_Controller {
             }
 
             $clientemail = $this->input->post('email2');
-                $name = $this->input->post('firstname2') . " " . $this->input->post('lastname2');
+            $name = $this->input->post('firstname2') . " " . $this->input->post('lastname2');
 
             $this->load->library('postmark');
 
@@ -296,7 +296,7 @@ class Quote extends MY_Controller {
                         
                         ");
 
-            
+
             $this->postmark->attach('./images/reports/quote.pdf');
 
             $this->postmark->send();
@@ -309,16 +309,17 @@ class Quote extends MY_Controller {
             $this->onscreen();
         }
     }
-/**
- * 
- */
+
+    /**
+     * 
+     */
     function instruct() {
         //Validate Form here
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('firstname', 'Firstname', 'trim|required');
         $this->form_validation->set_rules('lastname', 'Lastname', 'trim|required');
         $this->form_validation->set_rules('comments', 'comments', 'trim');
-        
+
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('message', validation_errors());
             $this->alertmessage = validation_errors();
