@@ -125,7 +125,9 @@ $(document).ready(function(){
 
 
 
-
+$(window).load(function() {
+    $.backstretch("/images/background/cloud.jpg");
+});
 
 
 

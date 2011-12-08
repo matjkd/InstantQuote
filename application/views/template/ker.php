@@ -18,7 +18,7 @@
         </div>
    <div   id="header">
        <div id="lefttitle"><img src="<?=base_url()?>images/titles/logo.png" alt="get a conveyancing quote"/></div>
-        <div  id="righttitle"> <img src="<?=base_url()?>images/logo/logo.png" alt="Kenneth Elliott &amp; Rowe"/></div>
+        <div  id="righttitle"> <a href="http://www.ker.co.uk" target="blank"><img src="<?=base_url()?>images/logo/logo.png" alt="Kenneth Elliott &amp; Rowe"/></a></div>
         </div>
     </div>
 
