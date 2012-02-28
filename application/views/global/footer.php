@@ -6,7 +6,7 @@
  
 
    </script>
-      <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+      <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
  
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 
@@ -18,12 +18,7 @@
 
 
   <!-- Change UA-XXXXX-X to be your site's ID -->
-  <script>
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-    });
-  </script>
+
 
 
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
