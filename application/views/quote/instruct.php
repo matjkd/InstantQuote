@@ -26,6 +26,11 @@
         </p>
 
         <p>
+            Postal Address*<br/>
+
+            <?= form_textarea('address', set_value('address')) ?>
+        </p>
+        <p>
             Comments<br/>
 
             <?= form_textarea('comments', set_value('comments')) ?>
@@ -74,11 +79,11 @@
 } ?>
 <?php if (!isset($purchase_fee)) {
     $purchase_fee = NULL;
-    $leaseholdfee == NULL;
+    $leaseholdfee = NULL;
 } ?>
 <?php if (!isset($sale_fee)) {
     $sale_fee = NULL;
-    $leaseholdsalefee == NULL;
+    $leaseholdsalefee = NULL;
 } ?>
 <?= form_hidden('selling_price', $salecost) ?>
 

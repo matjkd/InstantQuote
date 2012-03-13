@@ -1,8 +1,8 @@
-<button class="submitbutton" id="quoteopener">Email your Quote</button>
+<button class="submitbutton" id="callbackopener">Request Call Back</button>
 
-<div id="quotedialog" title="Email your quote" style="display:none;">
+<div id="callbackdialog" title="Request Call Back" style="display:none;">
 
-    <?= form_open('quote/emailquote') ?>
+    <?= form_open('quote/callback') ?>
     <div class="form" id="instruct">
 
         <p>
@@ -17,16 +17,13 @@
             <?= form_input('lastname2', set_value('lastname2')) ?>
         </p>
         <p>
-            Email*<br/>
+            Phone Number*<br/>
 
-            <?= form_input('email2', set_value('email2')) ?>
+            <?= form_input('phone2', set_value('phone2')) ?>
         </p>
 
 
-
-
-
-        <?php if (!isset($purchasecost)) {
+  <?php if (!isset($purchasecost)) {
             $purchasecost = NULL;
         } ?>
 <?= form_hidden('buying_price', $purchasecost) ?>
@@ -67,11 +64,11 @@
 } ?>
 <?php if (!isset($purchase_fee)) {
     $purchase_fee = NULL;
-    $leaseholdfee == NULL;
+    $leaseholdfee = NULL;
 } ?>
 <?php if (!isset($sale_fee)) {
     $sale_fee = NULL;
-    $leaseholdsalefee == NULL;
+    $leaseholdsalefee = NULL;
 } ?>
 <?= form_hidden('selling_price', $salecost) ?>
 
@@ -88,7 +85,9 @@
     $leaseholdsaleno = 0;
 } ?>
 <?= form_hidden('leaseholdsale', $leaseholdsale) ?>           
-        <button type="submit" name="submit" value="email quote" class="submitbutton">Email your quote</button>
+
+       
+        <button type="submit" name="submit" value="email quote" class="submitbutton">Call me back</button>
         *required
     </div>
 <?= form_close() ?>

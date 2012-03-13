@@ -123,6 +123,18 @@ $(document).ready(function(){
 		});
 	});
 
+ $(document).ready(function(){
+		$( "#callbackdialog" ).dialog({
+			autoOpen: false,
+			show: "fade",
+			hide: "fade"
+		});
+
+		$( "#callbackopener" ).click(function() {
+			$( "#callbackdialog" ).dialog( "open" );
+			return false;
+		});
+	});
 
 
 $(window).load(function() {

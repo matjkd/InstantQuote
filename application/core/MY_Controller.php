@@ -20,7 +20,7 @@ class MY_Controller extends CI_Controller {
 			$config_data['config_address4'] = $row->address4;
 			$config_data['config_address5'] = $row->address5;
 			
-			$config_data['config_address'] = "".$row->address1.", ".$row->address2.", ".$row->address3.", ".$row->address4.", ".$row->address5."";
+			$config_data['config_address'] = "".$row->address1.",<br/> ".$row->address2.",<br/> ".$row->address3.",<br/> ".$row->address4.",<br/> ".$row->address5."";
 			
 			$config_data['config_version'] = "0.0.9";
 			$config_data['config_email'] = $row->main_email;

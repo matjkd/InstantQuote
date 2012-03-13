@@ -66,8 +66,8 @@
 
         <table>
             <tr>
-                <td width="280px">
-                    <h1>Conveyancing Quote</h1>
+                <td width="380px">
+                    <h1>Residential Conveyancing Quote</h1>
                 </td>
 
                 <td align=right>
@@ -78,6 +78,7 @@
                     Date: <?php
                     echo $datetime;
                     ?>
+                    <br/>(Quote valid for 60 Days)
                 </td>
             </tr>
 
@@ -91,12 +92,15 @@
             $feeclass = "singlefees";
             $noright = "";
             $grandtotal = $totalpurchase + $totalsale;
+            $grandtotal = number_format($grandtotal, 2, '.', '');
+            $grandtotalnostamp = number_format(($grandtotal - $stamp_fee), 2, '.', '');
         }
         if ($countfees == 2) {
             $feeclass = "fees";
             $noright = "noright";
             $grandtotal = $totalpurchase + $totalsale;
             $grandtotal = number_format($grandtotal, 2, '.', '');
+            $grandtotalnostamp = number_format(($grandtotal - $stamp_fee), 2, '.', '');
         }
         ?>
         <?php
@@ -136,7 +140,7 @@
 
                 <tr>
                     <td>
-                        sending bank transfers
+                        for sending bank transfers
                     </td>
 
                     <td>
@@ -147,7 +151,7 @@
                 </tr>
                 <tr>
                     <td>
-                        acting for your mortgage lender
+                        for acting for your mortgage lender
                     </td>
 
                     <td>
@@ -159,7 +163,7 @@
 
                 <tr>
                     <td>
-                        Completing Stamp Duty Forms
+                       for completing Stamp Duty Forms
                     </td>
 
                     <td>
@@ -361,16 +365,22 @@
         </table>
 
 
-        <p>All quotes are subject to our terms and conditions</p>
-
-        <p>If you want to speed up the process you can download and complete your sale questionnaires now. Visit www.ker.co.uk/easymove</p>
+       
 
 
     <?php } ?>
 
     <div class="clear"></div>
 
-    <h2>Total of our fees and expenses &pound;<?= $grandtotal ?></h2>
+      <?php if ($stamp_fee > 0) { ?>
+    <h2>  Total fees and expenses (excluding stamp duty) &pound;<?= $grandtotalnostamp ?></h2>
+        <?php } ?>
+      <h2>  Total fees and expenses  <?php if ($stamp_fee > 0) { ?> (including stamp duty)    <?php } ?> &pound;<?= $grandtotal ?></h2>
+    
+       <p>All quotes are subject to our terms and conditions (see over)</p>
+
+        <p>If you need further help or want to instruct us contact us on 01708 757575 or email mbs@ker.co.uk</p>
+    
     <div  style='page-break-before:always;'></div>
 
 

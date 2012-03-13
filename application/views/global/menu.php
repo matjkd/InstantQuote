@@ -1,10 +1,12 @@
 <div id="top_menu">
     	<ul>
-    	<li><?=anchor('/', 'Get a Conveyancing Quote')?></li>
-                <li><?=anchor('about', 'About')?></li>
+    	<li><?=anchor('/', 'Quote')?></li>
+        <li><?=anchor('terms', 'Terms and Conditions')?></li>
+                
                   <li><?=anchor('comparequotes', 'Comparing Quotes')?></li>
-                   <li><?=anchor('terms', 'Terms and Conditions')?></li>
+                   
                    <li><?=anchor('faq', 'FAQ')?></li>
+                   <li><?=anchor('about', 'Contact Us')?></li>
                    
                    <?php $is_logged_in = $this->session->userdata('is_logged_in');
                 $level = $this->session->userdata('role');

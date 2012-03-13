@@ -117,7 +117,7 @@ h2 {
 }
 #conveyancing {
 
-    width:220px;
+   
 
     border:0px solid #333333;
     padding:5px;
@@ -129,7 +129,7 @@ h2 {
     box-shadow: 2px 1px 5px #555555;
 }
 #callus {
-    width:220px;
+    
 
     border:0px solid #333333;
     padding:5px;
@@ -246,15 +246,15 @@ h2 {
 
 }
 #grandtotal {
-    clear:both;
+  
     color:#ffffff;
     font-size:1.7em;
     font-weight: bolder;
-    height:30px;
+    
     width:690px;
     padding:5px;
     background-color:#595959;
-    margin:10px 0 0 0;
+    margin:10px 0 5px 0;
     -moz-box-shadow: 2px 1px 5px #555555;
     -webkit-box-shadow: 2px 1px 5px #555555;
     box-shadow: 2px 1px 5px #555555;
@@ -286,5 +286,8 @@ a.signinbutton:hover{   color:#1a7fb4;}
     margin-top:5px;
 }
 #quoteopener {
+    margin-top:4px;
+}
+#callbackopener {
     margin-top:4px;
 }
