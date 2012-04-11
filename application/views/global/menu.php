@@ -5,7 +5,7 @@
                 
                   <li><?=anchor('comparequotes', 'Comparing Quotes')?></li>
                    
-                   <li><?=anchor('faq', 'FAQ')?></li>
+                   
                    <li><?=anchor('about', 'Contact Us')?></li>
                    
                    <?php $is_logged_in = $this->session->userdata('is_logged_in');

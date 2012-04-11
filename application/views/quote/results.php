@@ -8,14 +8,18 @@ if ($countfees <= 1) {
     $noright = "";
     $grandtotal = $totalpurchase + $totalsale;
     $grandtotal = number_format($grandtotal, 2, '.', '');
+   if(isset($stamp_fee)) {
     $grandtotalnostamp = number_format(($grandtotal - $stamp_fee), 2, '.', '');
+   }
 }
 if ($countfees == 2) {
     $feeclass = "fees";
     $noright = "noright";
     $grandtotal = $totalpurchase + $totalsale;
     $grandtotal = number_format($grandtotal, 2, '.', '');
+      if(isset($stamp_fee)) {
     $grandtotalnostamp = number_format(($grandtotal - $stamp_fee), 2, '.', '');
+      }
 }
 ?>
 <?php
@@ -139,10 +143,10 @@ if ($salecost != NULL) {
 
 <div id="grandtotal">
     <div style="width:650px;   ">  
-        <?php if ($stamp_fee > 0) { ?>
+        <?php if (isset($stamp_fee) && $stamp_fee > 0) { ?>
             Total fees and expenses (excluding stamp duty) £<?= $grandtotalnostamp ?><br/>
         <?php } ?>
-        Total fees and expenses  <?php if ($stamp_fee > 0) { ?> (including stamp duty)    <?php } ?> £<?= $grandtotal ?>
+        Total fees and expenses  <?php if (isset($stamp_fee) && $stamp_fee > 0) { ?> (including stamp duty)    <?php } ?> £<?= $grandtotal ?>
         <div style="clear:both;"></div>
     </div>
 
