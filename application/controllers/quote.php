@@ -311,7 +311,7 @@ class Quote extends MY_Controller {
             if ($level == 1) {
                 $adminemail = $this->session->userdata('email');
             } else {
-                $adminemail = "test@matsadler.com";
+                $adminemail = "test@redstudio.co.uk";
             }
 
             $clientemail = $this->input->post('email2');
@@ -325,7 +325,7 @@ class Quote extends MY_Controller {
 
             $this->postmark->from($config_email, $config_company_name);
             $this->postmark->to($clientemail);
-            $this->postmark->cc($adminemail);
+            $this->postmark->bcc($adminemail);
             $this->postmark->subject('Your Quote');
 
             //get content for the email
