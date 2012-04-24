@@ -93,14 +93,18 @@
             $noright = "";
             $grandtotal = $totalpurchase + $totalsale;
             $grandtotal = number_format($grandtotal, 2, '.', '');
-            $grandtotalnostamp = number_format(($grandtotal - $stamp_fee), 2, '.', '');
+            if (isset($stamp_fee)) {
+                $grandtotalnostamp = number_format(($grandtotal - $stamp_fee), 2, '.', '');
+            }
         }
         if ($countfees == 2) {
             $feeclass = "fees";
             $noright = "noright";
             $grandtotal = $totalpurchase + $totalsale;
             $grandtotal = number_format($grandtotal, 2, '.', '');
-            $grandtotalnostamp = number_format(($grandtotal - $stamp_fee), 2, '.', '');
+            if (isset($stamp_fee)) {
+                $grandtotalnostamp = number_format(($grandtotal - $stamp_fee), 2, '.', '');
+            }
         }
         ?>
         <?php
@@ -163,7 +167,7 @@
 
                 <tr>
                     <td>
-                       for completing Stamp Duty Forms
+                        for completing Stamp Duty Forms
                     </td>
 
                     <td>
@@ -365,22 +369,22 @@
         </table>
 
 
-       
+
 
 
     <?php } ?>
 
     <div class="clear"></div>
+  <?php if (isset($stamp_fee) && $stamp_fee > 0) { ?>
+   
+        <h2>  Total fees and expenses (excluding stamp duty) &pound;<?= $grandtotalnostamp ?></h2>
+    <?php } ?>
+    <h2>  Total fees and expenses  <?php if (isset($stamp_fee) && $stamp_fee > 0) { ?> (including stamp duty)    <?php } ?> &pound;<?= $grandtotal ?></h2>
 
-      <?php if ($stamp_fee > 0) { ?>
-    <h2>  Total fees and expenses (excluding stamp duty) &pound;<?= $grandtotalnostamp ?></h2>
-        <?php } ?>
-      <h2>  Total fees and expenses  <?php if ($stamp_fee > 0) { ?> (including stamp duty)    <?php } ?> &pound;<?= $grandtotal ?></h2>
-    
-       <p>All quotes are subject to our terms and conditions (see over)</p>
+    <p>All quotes are subject to our terms and conditions (see over)</p>
 
-        <p>If you need further help or want to instruct us contact us on 01708 757575 or email mbs@ker.co.uk</p>
-    
+    <p>If you need further help or want to instruct us contact us on 01708 757575 or email mbs@ker.co.uk</p>
+
     <div  style='page-break-before:always;'></div>
 
 

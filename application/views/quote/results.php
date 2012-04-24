@@ -17,9 +17,9 @@ if ($countfees == 2) {
     $noright = "noright";
     $grandtotal = $totalpurchase + $totalsale;
     $grandtotal = number_format($grandtotal, 2, '.', '');
-      if(isset($stamp_fee)) {
-    $grandtotalnostamp = number_format(($grandtotal - $stamp_fee), 2, '.', '');
-      }
+      if (isset($stamp_fee)) {
+        $grandtotalnostamp = number_format(($grandtotal - $stamp_fee), 2, '.', '');
+    }
 }
 ?>
 <?php
