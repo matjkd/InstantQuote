@@ -105,7 +105,7 @@ class Quote extends MY_Controller {
             $stampduty = $this->admin_model->calculate_fee('stampfee', $data['purchasecost']);
             $stamp1 = ((($data['purchasecost'] / 100) * $stampduty) / 5) + 0.99;
             $data['stamp_fee'] = intval($stamp1) * 5;
-            if ($data['stamp_fee'] > 0) {
+            if ($data['purchasecost'] > 39999) {
                 $data['stamp_duty_forms'] = $row->stamp_duty_forms;
             } else {
                 $data['stamp_duty_forms'] = 0;
