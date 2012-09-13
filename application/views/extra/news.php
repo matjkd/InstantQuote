@@ -1,3 +1,4 @@
+
    <h1>Latest News</h1>
    <div class="newsfeed">
            <?php $newsfeed = file_get_contents('http://www.ker.co.uk/residential-news.feed?type=rss');
@@ -24,4 +25,6 @@
 			   
 			 </div>   
 		   <?php endforeach; ?>
+
+	
            </div>
