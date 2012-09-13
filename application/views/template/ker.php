@@ -7,25 +7,25 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 
 
-<?=$this->load->view('global/header')?>
+<?=$this -> load -> view('global/header') ?>
 
 <body>
 
   <div id="container">
     <div class="container_12" role="main">
         <div id="infobar">
-        <?=$this->load->view('login/login_box')?>
+        <?=$this -> load -> view('login/login_box') ?>
         </div>
    <div   id="header">
-       <div id="lefttitle"><img src="<?=base_url()?>images/titles/logo.png" alt="get a conveyancing quote"/></div>
-        <div  id="righttitle"> <a href="http://www.ker.co.uk" target="blank"><img src="<?=base_url()?>images/logo/logo.png" alt="Kenneth Elliott &amp; Rowe"/></a></div>
+       <div id="lefttitle"><img src="<?=base_url() ?>images/titles/logo.png" alt="get a conveyancing quote"/></div>
+        <div  id="righttitle"> <a href="http://www.ker.co.uk" target="blank"><img src="<?=base_url() ?>images/logo/logo.png" alt="Kenneth Elliott &amp; Rowe"/></a></div>
         </div>
     </div>
 
       <div  class="container_12" role="main">
         <div class="ui-dialog-titlebar" id="menu">
              <div id="top_menu">
-              <?=$this->load->view('global/menu')?>
+              <?=$this -> load -> view('global/menu') ?>
                  
              </div>
             
@@ -35,12 +35,17 @@
     <div id="main" class="container_12" role="main">
   
         <div class="grid_3">
-           <?=$this->load->view('global/sidebar')?>
+           <?=$this -> load -> view('global/sidebar') ?>
         </div>
 
             <div class="grid_9">
-                <?=$this->load->view('global/warning')?>
-           <?=$this->load->view($main)?>
+                <?=$this -> load -> view('global/warning') ?>
+           <?=$this -> load -> view($main) ?>
+           
+           
+           <hr/>
+           
+      
         </div>
      
 
@@ -61,7 +66,7 @@
   
 
   
-<?=$this->load->view('global/footer')?>
+<?=$this -> load -> view('global/footer') ?>
 
 
 </body>
