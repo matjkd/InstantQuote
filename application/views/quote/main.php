@@ -1,4 +1,4 @@
-<div id="conveyancing" >
+<div id="conveyancing" style="text-align:center;">
     <img src="<?=base_url()?>images/titles/get_a_conveyancing_quote.png" alt="get a conveyancing quote"/>
     <?=form_open('quote/onscreen')?>
         <div class="form" id="buying" style="text-align:center;">
@@ -37,7 +37,7 @@
 
         </div>
 
-        <div class="form" id="selling">
+        <div class="form" id="selling" style="text-align:center;">
 
              <p><strong>Selling Price</strong><br/>
                    <?php if(!isset($salecost)) { $salecost=NULL; } ?>
