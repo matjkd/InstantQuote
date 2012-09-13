@@ -7,6 +7,21 @@
 
    </script>
       <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      
+      <!-- cookie cuttr
+================================================== -->
+<script src="<?=base_url()?>js/cookiecuttr.js"></script>
+<link rel="stylesheet" href="<?= base_url() ?>css/cookiecuttr.css">
+<script>
+    $(document).ready(function () {
+        $.cookieCuttr({
+            cookieAnalytics: false,
+cookieMessage: 'We use cookies on this website, they are required for it to work. To use the website as intended please...',
+
+        });	
+    });
+
+</script>
  
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 

@@ -70,7 +70,7 @@ function __construct()
 		else // incorrect username or password
 		{
 			$data['title'] = 'Login Failed';
-			$data['main'] = 'user/index';
+			$data['main'] = 'login/fail';
 			$this->load->vars($data);
 			$this->load->view('template/ker');
 			

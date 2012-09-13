@@ -94,8 +94,7 @@ class Quote extends MY_Controller {
             /* purchase fee */
             if ($purchasefee > 0) {
                 $data['purchase_fee'] = $purchasefee;
-                 $data['leaseholdfee'] = 0;
-                
+                $data['leaseholdfee'] = 0;
             } else {
                 $data['purchase_fee'] = $this->admin_model->calculate_fee('purchasefee', $data['purchasecost']);
             }
@@ -106,7 +105,7 @@ class Quote extends MY_Controller {
             $stampduty = $this->admin_model->calculate_fee('stampfee', $data['purchasecost']);
             $stamp1 = ((($data['purchasecost'] / 100) * $stampduty) / 5) + 0.99;
             $data['stamp_fee'] = intval($stamp1) * 5;
-            if ($data['stamp_fee'] > 0) {
+            if ($data['purchasecost'] > 39999) {
                 $data['stamp_duty_forms'] = $row->stamp_duty_forms;
             } else {
                 $data['stamp_duty_forms'] = 0;
@@ -215,6 +214,49 @@ class Quote extends MY_Controller {
         pdf_create($html, 'quote', $stream);
     }
 
+    function callback() {
+        //Validate Form here
+        $this->form_validation->set_rules('phone2', 'Phone', 'trim|required');
+        $this->form_validation->set_rules('firstname2', 'Firstname', 'trim|required');
+        $this->form_validation->set_rules('lastname2', 'Lastname', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+            $this->session->set_flashdata('message', validation_errors());
+            $this->alertmessage = validation_errors();
+            $this->onscreen();
+        } else {
+
+            $phone = $this->input->post('phone2');
+            $name = $this->input->post('firstname2') . " " . $this->input->post('lastname2');
+
+            $config_email = $this->config_email;
+
+            $config_company_name = $this->config_company_name;
+
+            $this->postmark->from($config_email, $config_company_name);
+            $this->postmark->to($config_email);
+   $this->postmark->cc('mat@redstudio.co.uk');
+            $this->postmark->subject('Call Back Request');
+
+
+            $this->postmark->message_html("
+                      $name has requested a callback fron the Conveyancing site.
+                        <br/><br/>
+                        Tel: $phone
+                       
+                       
+                        
+                        ");
+
+
+
+
+            $this->postmark->send();
+            $this->session->set_flashdata('message', 'Email Sent');
+            $this->alertmessage = 'Email has been sent..';
+            $this->onscreen();
+        }
+    }
+
     function emailquote() {
 
         //Validate Form here
@@ -269,7 +311,7 @@ class Quote extends MY_Controller {
             if ($level == 1) {
                 $adminemail = $this->session->userdata('email');
             } else {
-                $adminemail = "test@matsadler.com";
+                $adminemail = "ker@redstudio.co.uk";
             }
 
             $clientemail = $this->input->post('email2');
@@ -321,6 +363,7 @@ class Quote extends MY_Controller {
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('firstname', 'Firstname', 'trim|required');
         $this->form_validation->set_rules('lastname', 'Lastname', 'trim|required');
+        $this->form_validation->set_rules('address', 'Address', 'trim|required|prep_for_form');
         $this->form_validation->set_rules('comments', 'comments', 'trim');
 
         if ($this->form_validation->run() == FALSE) {
@@ -367,7 +410,7 @@ class Quote extends MY_Controller {
 
             $name = $this->input->post('firstname') . " " . $this->input->post('lastname');
             $comments = $this->input->post('comments');
-
+            $address = set_value('address');
             $this->load->library('postmark');
 
 
@@ -388,6 +431,7 @@ class Quote extends MY_Controller {
                         <br/><br/>
                         $msg
                         <br/><br/>
+                    Your Address: $address<br/><br/>
                         Your Comments: $comments
                         
                         ");

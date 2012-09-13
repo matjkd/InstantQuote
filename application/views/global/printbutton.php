@@ -35,6 +35,6 @@
   <?=form_hidden('leaseholdsale', $leaseholdsale)?>
  
          
-<button type="submit" name="submit" value="Get an Instant Quote" class="submitbutton">Print</button>
+<button type="submit" name="submit" value="Get an Instant Quote" class="submitbutton">Print or Save a PDF Version</button>
  
     <?=form_close()?>

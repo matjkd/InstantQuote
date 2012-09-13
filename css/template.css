@@ -45,7 +45,7 @@ h2 {
 	padding-bottom: 20px;
 }
 .newsfeed h2 {
-	maring-bottom: 0px;
+	margin-bottom: 0px;
 }
 .newsfeed a {
 	text-decoration: none;
@@ -62,7 +62,7 @@ h2 {
 .dataTables_wrapper {
 	position: relative;
 	min-height: 0px;
-	_height: 0px;;
+	height: 0px;
 	clear: both;
 }
 .form {
@@ -140,6 +140,7 @@ h2 {
 }
 #conveyancing {
 
+
 	width: 210px;
 	border: 0px solid #333333;
 	padding: 15px 5px 5px 5px;
@@ -166,6 +167,17 @@ h2 {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+
+   
+
+    border:0px solid #333333;
+    padding:5px;
+    background: #c7d0d6;
+    background:-webkit-gradient(linear, 0% 66%, 0% 0%, from(#c7d0d6), to(#7893a6));
+    margin-bottom:10px;
+    -moz-box-shadow: 2px 1px 5px #555555;
+    -webkit-box-shadow: 2px 1px 5px #555555;
+    box-shadow: 2px 1px 5px #555555;
 }
 
 .fees {
@@ -268,6 +280,7 @@ h2 {
 	font-weight: bolder;
 }
 #grandtotal {
+
 	clear: both;
 	color: #ffffff;
 	font-size: 1.7em;
@@ -283,6 +296,9 @@ h2 {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+
+  
+   
 }
 
 #instruct input {
@@ -319,5 +335,11 @@ a.signinbutton:hover {
 	margin-top: 5px;
 }
 #quoteopener {
+
 	margin-top: 4px;
+
+}
+#callbackopener {
+    margin-top:4px;
+
 }

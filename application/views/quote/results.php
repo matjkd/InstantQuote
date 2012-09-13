@@ -7,12 +7,19 @@ if ($countfees <= 1) {
     $feeclass = "singlefees";
     $noright = "";
     $grandtotal = $totalpurchase + $totalsale;
+    $grandtotal = number_format($grandtotal, 2, '.', '');
+   if(isset($stamp_fee)) {
+    $grandtotalnostamp = number_format(($grandtotal - $stamp_fee), 2, '.', '');
+   }
 }
 if ($countfees == 2) {
     $feeclass = "fees";
     $noright = "noright";
     $grandtotal = $totalpurchase + $totalsale;
     $grandtotal = number_format($grandtotal, 2, '.', '');
+      if (isset($stamp_fee)) {
+        $grandtotalnostamp = number_format(($grandtotal - $stamp_fee), 2, '.', '');
+    }
 }
 ?>
 <?php
@@ -42,7 +49,7 @@ if ($purchasecost != NULL) {
             <div class="resultlabel">for acting for your mortgage lender</div>
             <div class="resultvalue">£<?= $mortgagefee ?></div>
 
-            <div class="resultlabel">Completing Stamp Duty Forms</div>
+            <div class="resultlabel">for completing stamp duty forms</div>
             <div class="resultvalue">£<?= $stamp_duty_forms ?></div>
 
             <div class="resultlabel">VAT </div>
@@ -60,7 +67,7 @@ if ($purchasecost != NULL) {
                 <div class="resultvalue">£<?= $land_fee ?></div>
 
 
-                <div class="resultlabel">Local Search budget</div>
+                <div class="resultlabel">Local Search (budget figure)</div>
                 <div class="resultvalue">£<?= $localsearch ?></div>
 
 
@@ -135,16 +142,20 @@ if ($salecost != NULL) {
 <div class="clear"></div>
 
 <div id="grandtotal">
-    <div style="width:550px;  float:left; ">  
-        Total of our fees and expenses £<?= $grandtotal ?>
+    <div style="width:650px;   ">  
+        <?php if (isset($stamp_fee) && $stamp_fee > 0) { ?>
+            Total fees and expenses (excluding stamp duty) £<?= $grandtotalnostamp ?><br/>
+        <?php } ?>
+        Total fees and expenses  <?php if (isset($stamp_fee) && $stamp_fee > 0) { ?> (including stamp duty)    <?php } ?> £<?= $grandtotal ?>
+        <div style="clear:both;"></div>
     </div>
-    <div style="width:100px;  float:right; font-size:14px;">  
-        <?= $this->load->view('global/printbutton') ?>
-    </div>
+
+
+
 
 </div>
 
+<?= $this->load->view('global/printbutton') ?>
+<?= $this->load->view('quote/emailquote') ?>
 <?= $this->load->view('quote/instruct') ?>
-
-<?=
-$this->load->view('quote/emailquote')?>
+If you need further help contact us on 01708 757575 or email mbs@ker.co.uk. or request a call back
