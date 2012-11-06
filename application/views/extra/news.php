@@ -19,7 +19,8 @@
            ?>
 			 <div class="feedItem" style="clear:both;"> 
 			   <h2><a href="<?=$row -> link ?>"><?=$row -> title ?></a></h2>
-			   <?=$timeTrim ?> | <strong>by <?=$authorTrim ?></strong>
+			   <?=$timeTrim ?> | <strong>by  <a href="https://plus.google.com/u/0/111287847318681499337?
+   rel=author"><?=$authorTrim ?></a></strong>
 			     <div style="clear:both; padding-top:10px;"><?=$descriptionTrim ?></div>
 			   <div style="clear:both; padding-top:10px;"><a href="<?=$row -> link ?>">Read More...</a></div>
 			   
