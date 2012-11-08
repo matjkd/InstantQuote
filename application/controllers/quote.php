@@ -211,6 +211,7 @@ class Quote extends MY_Controller {
         $this->load->vars($data);
         $stream = TRUE;
         $html = $this->load->view('template/pdf', $data, true);
+		//echo $html;
         pdf_create($html, 'quote', $stream);
     }
 

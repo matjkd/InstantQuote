@@ -10,6 +10,7 @@
                 padding-top:0px;
                 font-family: 'Helvetica';
                 font-size: 9px;
+                color:#444;
             }
 
             table {
@@ -67,11 +68,13 @@
         <table>
             <tr>
                 <td width="380px">
-                    <h1>Residential Conveyancing Quote</h1>
+                   <img style="width:210px; margin-bottom:3px; margin-top:10px;"  src="/home/cloud/domains/redtest.info/public_html/quote/images/logo/quoteheading.jpg" alt="test">
+                    
                 </td>
 
                 <td align=right>
-                    <h2 style="margin-bottom:3px;"> <?php echo $config_company_name; ?></h2>
+                	<img style="width:150px; margin-bottom:3px; margin-top:10px;"  src="/home/cloud/domains/redtest.info/public_html/quote/images/logo/ker.jpg" alt="test">
+                    
                     <?php echo $config_address; ?><br/>
                     <?php echo "<strong>t $config_phone</strong>  <br/><strong>e</strong> $config_email  <br/> <strong>w</strong> $config_website"; ?>
                     <br/>
@@ -421,8 +424,8 @@
 
         $y += $text_height;
 
-        $text = "ID: quote ref";
-        $pdf->text(16, $y, $text, $font, $size, $color);
+        //$text = "ID: quote ref";
+        //$pdf->text(16, $y, $text, $font, $size, $color);
 
         $pdf->close_object();
         $pdf->add_object($foot, "all");

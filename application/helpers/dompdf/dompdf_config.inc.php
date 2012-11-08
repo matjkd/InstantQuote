@@ -191,7 +191,10 @@ define("DOMPDF_ENABLE_REMOTE", true);
  */
 function DOMPDF_autoload($class) {
   $filename = mb_strtolower($class) . ".cls.php";
-  require_once(DOMPDF_INC_DIR . "/$filename");
+  if($filename != "ci_exceptions.cls.php"){
+	  require_once(DOMPDF_INC_DIR . "/$filename");
+//      require_once(DOMPDF_INC_DIR . "/dompdf.cls.php");
+  }
 }
 
 if ( !function_exists("__autoload") ) {
