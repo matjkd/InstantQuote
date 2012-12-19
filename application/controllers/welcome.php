@@ -56,6 +56,34 @@ class Welcome extends CI_Controller {
         $this->load->vars($data);
         $this->load->view('template/ker');
     }
+	
+	function testing() {
+		 $segment_active = $this->uri->segment(3);
+        if ($segment_active != NULL) {
+            $data['menu'] = $this->uri->segment(3);
+        } else {
+
+
+            if (($this->uri->segment(1)) == NULL) {
+                $data['menu'] = 'home';
+            } else {
+                $data['menu'] = $this->uri->segment(1);
+            }
+        }
+
+        $data['content'] = $this->content_model->get_content($data['menu']);
+
+        foreach ($data['content'] as $row):
+
+            $data['title'] = $row->title;
+
+        endforeach;
+
+        $data['main'] = 'global/mainpage';
+        $data['slideshow'] = 'header/slideshow';
+        $this->load->vars($data);
+		 $this->load->view('template/bootstrap');
+	}
 
 }
 

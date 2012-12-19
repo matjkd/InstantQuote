@@ -1,0 +1,35 @@
+ .navbar-fixed-top {
+    margin-bottom: 0px;
+  }
+.hero-unit {
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  color: #ddd;
+  
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-border-radius: 0 0 6px 6px;
+     -moz-border-radius: 0 0 6px 6px;
+          border-radius: 0 0 6px 6px;
+}
+
+.hero-unit h1 {
+  margin-bottom: 0;
+  font-size: 60px;
+  line-height: 70px;
+  letter-spacing: -1px;
+  color: #fff;
+}
+
+.hero-unit li {
+  line-height: 30px;
+}
+.accordion-heading {
+	background:#444;
+} 
+.collapse {
+	background:#ddd;
+}
+
