@@ -44,7 +44,7 @@ class Welcome extends CI_Controller {
         }
 
         $data['content'] = $this->content_model->get_content($data['menu']);
-
+		$data['local'] = $this->content_model->get_content_by_category('local');
         foreach ($data['content'] as $row):
 
             $data['title'] = $row->title;

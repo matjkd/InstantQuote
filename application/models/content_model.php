@@ -19,6 +19,16 @@ class Content_model extends CI_Model {
 		
 	}
 	
+	function get_content_by_category($category) {
+		$this->db->where('category', $category);
+		
+		$query = $this->db->get('content');
+		if($query->num_rows > 0)
+			{
+				return $query->result();
+			}
+	}
+	
 	 /**
      *
      * @param type $filename
@@ -42,6 +52,8 @@ class Content_model extends CI_Model {
             'content' => $this->input->post('content'),
             'menu' => $this->input->post('menu'),
           	'title' => $this->input->post('title'),
+          	'town' => $this->input->post('town'),
+          	'sale_price' => $this->input->post('sale_price'),
             'extra' => $this->input->post('extra'),
             'meta_desc' => $this->input->post('meta_desc'),
             'meta_title' => $this->input->post('meta_title'),
@@ -57,7 +69,41 @@ class Content_model extends CI_Model {
         $update = $this->db->update('content', $content_update);
         return $update;
     }
-	
+	function add_content() {
+
+        //process menu link
+        $menu_link = $this->input->post('menu');
+        $search = array(" ");
+        $replace = "-";
+        if ($menu_link == NULL) {
+
+            $subject = set_value('title');
+            $menu_link = str_replace($search, $replace, $subject);
+        } else {
+            $subject = $this->input->post('menu');
+            $menu_link = str_replace($search, $replace, $subject);
+        }
+
+        // build array for the model
+        $name = "" . $this->session->userdata('firstname') . " " . $this->session->userdata('lastname') . "";
+
+        $now = time();
+        $datetime = $now;
+        $form_data = array(
+            'title' => set_value('title'),
+            'content' => $this->input->post('content'),
+            'menu' => $menu_link,
+            'town' => $this->input->post('town'),
+            'sale_price' => $this->input->post('sale_price'),
+            'category' => set_value('category'),
+            'added_by' => $name,
+            'meta_desc' => $this->input->post('meta_desc'),
+            'meta_title' => $this->input->post('meta_title'),
+            'date_added' => $datetime
+        );
+        $insert = $this->db->insert('content', $form_data);
+        return $insert;
+    }
 	function get_all_news()
 	{
 			

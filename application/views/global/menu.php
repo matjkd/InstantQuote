@@ -16,6 +16,9 @@
                     echo "<li>".anchor('yourquote', 'Quote Email')."</li>";
                       echo "<li>".anchor('instruct', 'Instruct Email')."</li>";
                   echo "<li>".anchor('admin', 'Admin')."</li>";
+				  echo "<li>".anchor('admin/add_local', 'Add local')."</li>";
+				  
+				  
 		}
                    
                    

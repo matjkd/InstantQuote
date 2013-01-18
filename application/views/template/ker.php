@@ -57,6 +57,11 @@
      <div  id="footer">
     	<div class="container_24">
             <a href="http://www.ker.co.uk">Kenneth Elliott &amp; Rowe Solicitors</a>.  &copy; 2011. Website being developed by <a href="http://www.redstudio.co.uk">Redstudio Design Limited</a>
+		
+		<br/> <?php if(isset($local)) {
+			 foreach($local as $row): ?>
+			<a href="<?=base_url()?>local/conveyancing/<?=$row->menu?>"><?=$row->title?></a> &nbsp;
+			<?php endforeach; } ?>
 		</div>
         </div>
         </div>

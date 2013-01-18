@@ -10,9 +10,18 @@ $id = $row->content_id;?>
 <?=form_open_multipart("admin/edit_content/".$id)?> 
 Title: <br/><?=form_input('title', $row->title)?>
 <br/>
+Menu: <br/><?=form_input('menu', $row->menu)?>
+<br/>
+<?php if($row->category == 'local') { ?>
+Town: <br/><?=form_input('town', $row->town)?>
+<br/>
+Average Sale Price: <br/><?=form_input('sale_price', $row->sale_price)?>
+<br/>
+
+<?php } ?>
 <textarea cols=65 rows=20 name="content" id="content" class='wymeditor'><?=$row->content?></textarea>
 <br/>
-<?=form_hidden('menu', $row->menu)?>
+
 <?php if($row->news_image != NULL) { ?>
 <img src="https://s3-eu-west-1.amazonaws.com/kerquote/<?=$row->news_image?>" style="padding:10px 10px 10px 0;" width="150px">
 <?php } ?>

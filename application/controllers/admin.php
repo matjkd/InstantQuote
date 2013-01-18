@@ -77,6 +77,51 @@ function __construct()
 			
 			
 		}
+		
+		 function add_content() {
+        $data['main'] = "admin/add_content";
+        //$data['pages'] = $this->content_model->get_all_content();
+
+        $this->load->vars($data);
+        $this->load->view('template/ker');
+    }
+		 
+		  function add_local() {
+        $data['main'] = "admin/add_local";
+        //$data['pages'] = $this->content_model->get_all_content();
+
+        $this->load->vars($data);
+        $this->load->view('template/ker');
+    }
+		  
+		  
+		   function submit_content() {
+        $this->form_validation->set_rules('title', 'Title', 'trim|max_length[255]|required');
+        $this->form_validation->set_rules('content', 'Content', 'trim');
+        $this->form_validation->set_rules('menu', 'menu', 'trim');
+        $this->form_validation->set_rules('category', 'Category', 'trim|max_length[11]');
+        $this->form_validation->set_error_delimiters('<br /><span class="error">', '</span>');
+
+        if ($this->form_validation->run() == FALSE) { // validation hasn'\t been passed
+            echo "validation error";
+        } else { // passed validation proceed to post success logic
+            if ($this->content_model->add_content()) { // the information has therefore been successfully saved in the db
+                //now process the image
+                // run insert model to write data to db
+                //upload file
+                //retrieve uploaded file
+                $this->upload_image();
+
+
+
+
+                redirect('/admin');   // or whatever logic needs to occur
+            } else {
+                echo 'An error occurred saving your information. Please try again later';
+                // Or whatever error handling is necessary
+            }
+        }
+    }
 	function edit()
 	{
 		
@@ -109,9 +154,9 @@ function __construct()
 
             $this->upload_image($id);
 
-echo set_value('menu');
 
-           // redirect("admin/edit/".set_value('menu'));
+
+           redirect("admin/edit/".set_value('menu'));
         }
     }
 	function create_page()
@@ -146,10 +191,10 @@ echo set_value('menu');
             //move the file
 echo $this->bucket;
             if ($this->s3->putObject($thefile, $this->bucket, $filelocation, S3:: ACL_PUBLIC_READ)) {
-                //echo "We successfully uploaded your file.";
+                echo "We successfully uploaded your file.";
                 $this->session->set_flashdata('message', 'News Added and file uploaded successfully');
             } else {
-                //echo "Something went wrong while uploading your file... sorry.";
+                echo "Something went wrong while uploading your file... sorry.";
                 $this->session->set_flashdata('message', 'News Added, but your file did not upload');
             }
 
@@ -161,10 +206,10 @@ echo $this->bucket;
             $newfile = file_get_contents($thumblocation, true);
 
             if ($this->s3->putObject($newfile, $this->bucket, $newfilename, S3:: ACL_PUBLIC_READ)) {
-                //echo "We successfully uploaded your file.";
+                echo "We successfully uploaded your file.";
                 $this->session->set_flashdata('message', 'News Added and file uploaded successfully');
             } else {
-                //echo "Something went wrong while uploading your file... sorry.";
+                echo "Something went wrong while uploading your file... sorry.";
                 $this->session->set_flashdata('message', 'News Added, but your file did not upload');
             }
 //delete files from server

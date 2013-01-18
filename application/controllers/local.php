@@ -39,7 +39,7 @@ class Local extends CI_Controller {
 
         endforeach;
 
-        $data['main'] = 'global/mainpage';
+        $data['main'] = 'global/localPage';
         $data['slideshow'] = 'header/slideshow';
         $this->load->vars($data);
         $this->load->view('template/ker');
