@@ -90,7 +90,7 @@
       		 <div class="row-fluid">
         <div class="span4 ">
         	
-          <h2>Get a Quote Now</h2>
+        
           
           
           <form>
