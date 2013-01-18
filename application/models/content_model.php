@@ -19,24 +19,44 @@ class Content_model extends CI_Model {
 		
 	}
 	
-	function edit_content($id)
-		{
-			
-			
-    				$content_update = array(
-    				'content' => $this->input->post('content'),
-    				'menu' => $this->input->post('menu'),
-    				'title' => $this->input->post('title'),
-					'extra' => $this->input->post('extra')
-    				);
-					
-					
-					
-		
-		$this->db->where('menu', $id);
-		$update = $this->db->update('content', $content_update);
-		return $update;
-		}
+	 /**
+     *
+     * @param type $filename
+     * @param type $blog_id
+     * @return type 
+     */
+    function add_file($filename, $blog_id) {
+        $content_update = array(
+            'news_image' => $filename
+        );
+
+        $this->db->where('content_id', $blog_id);
+        $update = $this->db->update('content', $content_update);
+        return $update;
+    }
+	
+	 function edit_content($id) {
+
+
+        $content_update = array(
+            'content' => $this->input->post('content'),
+            'menu' => $this->input->post('menu'),
+          	'title' => $this->input->post('title'),
+            'extra' => $this->input->post('extra'),
+            'meta_desc' => $this->input->post('meta_desc'),
+            'meta_title' => $this->input->post('meta_title'),
+            'sidebox' => $this->input->post('sidebox'),
+            'start_publish' => $this->input->post('startdate_unix'),
+            'end_publish' => $this->input->post('enddate_unix')
+			        );
+
+
+
+
+        $this->db->where('content_id', $id);
+        $update = $this->db->update('content', $content_update);
+        return $update;
+    }
 	
 	function get_all_news()
 	{

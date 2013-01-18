@@ -1,12 +1,14 @@
 <?php
-class Admin extends CI_Controller
+class Admin extends MY_Controller
 
 {
 function __construct()
 	{
 		parent::__construct();
                 $this->load->model('admin_model');
+				 $this->load->model('gallery_model');
                  $this->load->model('content_model');
+				  $this->load->library('s3');
 		$this->load->library(array('encrypt', 'form_validation'));
 		$this->is_logged_in();
 	}
@@ -57,24 +59,24 @@ function __construct()
         }
         
         function content()
-	{
-	if(($this->uri->segment(3))<1)
-			{
-				$id = 1;
-			}
-		else
-			{
-				$id = $this->uri->segment(3);
-			}
-		$data['content'] =	$this->content_model->get_content($id);
-		$data['main'] = "pages/dynamic";
-		$data['edit'] = "admin/edit/$id";
-		$this->load->vars($data);
-		  $this->load->view('template/ker');
-		
-		
-		
-	}
+		{
+		if(($this->uri->segment(3))<1)
+				{
+					$id = 1;
+				}
+			else
+				{
+					$id = $this->uri->segment(3);
+				}
+			$data['content'] =	$this->content_model->get_content($id);
+			$data['main'] = "pages/dynamic";
+			$data['edit'] = "admin/edit/$id";
+			$this->load->vars($data);
+			  $this->load->view('template/ker');
+			
+			
+			
+		}
 	function edit()
 	{
 		
@@ -95,13 +97,85 @@ function __construct()
 		$this->load->vars($data);
 		  $this->load->view('template/ker');
 	}
-	function edit_content()
+	function edit_content() {
+        $this->form_validation->set_rules('title', 'title', 'trim');
+        $this->form_validation->set_rules('menu', 'menu', 'trim|required');
+        if ($this->form_validation->run() == FALSE) { // validation hasn'\t been passed
+            echo "validation error";
+        } else { // passed validation proceed to post success logic
+            $id = $this->uri->segment(3);
+            $this->content_model->edit_content($id);
+
+
+            $this->upload_image($id);
+
+echo set_value('menu');
+
+           // redirect("admin/edit/".set_value('menu'));
+        }
+    }
+	function create_page()
 	{
-		$id = $this->uri->segment(3);
-		$this->content_model->edit_content($id);
 		
-		redirect ("admin/edit/$id");
+		
+		
 	}
+	
+	 function upload_image($id = 0) {
+
+        $this->gallery_model->do_upload();
+
+
+        if (!empty($_FILES) && $_FILES['file']['error'] != 4) {
+
+            $fileName = $_FILES['file']['name'];
+            $tmpName = $_FILES['file']['tmp_name'];
+            $fileName = str_replace(" ", "_", $fileName);
+            $filelocation = $fileName;
+
+            $thefile = file_get_contents($tmpName, true);
+
+            //add filename into database
+            //get blog id
+            if ($id == 0) {
+                $blog_id = mysql_insert_id();
+            } else {
+                $blog_id = $id;
+            }
+            $this->content_model->add_file($fileName, $blog_id);
+            //move the file
+echo $this->bucket;
+            if ($this->s3->putObject($thefile, $this->bucket, $filelocation, S3:: ACL_PUBLIC_READ)) {
+                //echo "We successfully uploaded your file.";
+                $this->session->set_flashdata('message', 'News Added and file uploaded successfully');
+            } else {
+                //echo "Something went wrong while uploading your file... sorry.";
+                $this->session->set_flashdata('message', 'News Added, but your file did not upload');
+            }
+
+            //uploadthumb
+            $thumblocation = base_url() . 'images/temp/thumbs/' . $fileName;
+            $newfilename = "thumb_" . $fileName;
+
+
+            $newfile = file_get_contents($thumblocation, true);
+
+            if ($this->s3->putObject($newfile, $this->bucket, $newfilename, S3:: ACL_PUBLIC_READ)) {
+                //echo "We successfully uploaded your file.";
+                $this->session->set_flashdata('message', 'News Added and file uploaded successfully');
+            } else {
+                //echo "Something went wrong while uploading your file... sorry.";
+                $this->session->set_flashdata('message', 'News Added, but your file did not upload');
+            }
+//delete files from server
+            $this->gallery_path = "./images/temp";
+            unlink($this->gallery_path . '/' . $fileName . '');
+            unlink($this->gallery_path . '/thumbs/' . $fileName . '');
+        } else {
+
+            $this->session->set_flashdata('message', 'News Added');
+        }
+    }
 
         function is_logged_in()
 	{
