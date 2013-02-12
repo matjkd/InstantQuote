@@ -35,6 +35,8 @@
 		<link rel="stylesheet" href="<?=base_url() ?>css/layout/wide.css" name="layout">
 		<!-- Style Switcher Box -->
 		<link rel="stylesheet" href="<?=base_url() ?>css/layout/switcher.css">
+		
+		<link rel="stylesheet" href="<?=base_url() ?>css/custom.css">
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -161,12 +163,13 @@
 						<?=$this -> load -> view('global/calculator') ?>
 					</div>
 					<div class="span8">
-						<div class="clearfix color-bg" >
-							<div class="pull-right">
-							<div class="text-animate-5 clearfix">Call us on</div>
-							<div class="text-animate-11 clearfix">01708 757575</div>
-							<h4>9:00am - 6:00pm Monday to Friday</h4>
-							<h5>(Standard Call charges apply)</h5>
+						<div class="clearfix hero-convey">
+							<div class="pull-right color-bg pad10">
+							<p class="text-animate-5 clearfix">Call us on</p><br/>
+							<p class="text-animate-12 clearfix">01708 757575</p>
+							<br/>
+							<h4>9:00am - 6:00pm Monday to Friday
+							(Standard Call charges apply)</h4>
 							</div>
 						</div>
 					</div>
