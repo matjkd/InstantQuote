@@ -48,13 +48,14 @@ class Welcome extends CI_Controller {
         foreach ($data['content'] as $row):
 
             $data['title'] = $row->title;
+			$data['main_content'] = $row->main_content;
 
         endforeach;
 
         $data['main'] = 'global/mainpage';
         $data['slideshow'] = 'header/slideshow';
         $this->load->vars($data);
-        $this->load->view('template/ker');
+        $this->load->view('template/bootstrap');
     }
 	
 	function testing() {

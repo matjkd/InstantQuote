@@ -10,7 +10,7 @@
 
 		<!-- Basic Page Needs -->
 		<meta charset="utf-8">
-		<title>Conveyancing Quote</title>
+		<title><?=$title?></title>
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,11 +32,11 @@
 		<!-- Color Skins -->
 		<link rel="stylesheet" href="<?=base_url() ?>css/skins/blue.css" name="skins">
 		<!-- Layout Style -->
-		<link rel="stylesheet" href="<?=base_url() ?>css/layout/wide.css" name="layout">
+		<link rel="stylesheet" href="<?=base_url() ?>css/layout/boxed.css" name="layout">
 		<!-- Style Switcher Box -->
 		<link rel="stylesheet" href="<?=base_url() ?>css/layout/switcher.css">
 		
-		<link rel="stylesheet" href="<?=base_url() ?>css/custom.css">
+		<link rel="stylesheet" href="<?=base_url() ?>css/custom.css?1.3">
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -45,7 +45,7 @@
 
 	</head>
 
-	<body onload="prettyPrint()">
+	<body onload="prettyPrint()" class="custom">
 
 		<div id="wrap" class="boxed">
 
@@ -70,16 +70,16 @@
 							<div class="span6">
 								<ul class="tooltip-title top-social">
 									<li>
-										<a href="#" rel="tooltip" title="Facebook" class="social1-top"></a>
+										<a target="_blank"  href="http://www.facebook.com/kennethelliottrowe" rel="tooltip" title="Facebook" class="social1-top"></a>
 									</li>
 									<li>
-										<a href="#" rel="tooltip" title="Twitter" class="social2-top"></a>
+										<a target="_blank"  href="https://twitter.com/kersolicitors" rel="tooltip" title="Twitter" class="social2-top"></a>
 									</li>
 									<li>
-										<a href="#" rel="tooltip" title="Google+" class="social3-top"></a>
+										<a target="_blank" href="https://plus.google.com/u/0/111287847318681499337/" rel="tooltip" title="Google+" class="social3-top"></a>
 									</li>
 									<li>
-										<a href="#" rel="tooltip" title="Rss Feed" class="social4-top"></a>
+										<a target="_blank" href="http://www.ker.co.uk/residential-news.feed?type=rss" rel="tooltip" title="Rss Feed" class="social4-top"></a>
 									</li>
 								</ul>
 							</div>
@@ -94,32 +94,32 @@
 								<div class="span9">
 									<ul id="jMenu">
 										<li>
-											<a href="#" class="fNiv active">Home
+											<a href="<?=base_url()?>" class="fNiv active">Home
 											<br/>
 											<span class="smallText">All starts here</span></a>
 
 										</li>
 										<li>
-											<a href="#" class="fNiv">About
+											<a href="<?=base_url()?>about" class="fNiv">About
 											<br/>
 											<span class="smallText">See our pages</span></a>
 
 										</li>
 										<li>
-											<a class="fNiv">Terms and Conditions
+											<a href="<?=base_url()?>terms" class="fNiv">Terms and Conditions
 											<br/>
 											<span class="smallText">All the different stuff</span></a>
 
 										</li>
 										<li>
-											<a href="#" class="fNiv">Comparing Quotes
+											<a href="<?=base_url()?>comparequotes" href="#" class="fNiv">Comparing Quotes
 											<br/>
 											<span class="smallText">Work we are proud of</span></a>
 
 										</li>
 
 										<li>
-											<a href="contacts.html" class="fNiv last">Contacts
+											<a href="<?=base_url()?>contact" class="fNiv last">Contact
 											<br/>
 											<span class="smallText">Send message to us</span></a>
 										</li>
@@ -157,203 +157,12 @@
 				###################################################################################################
 				-->
 
-				<div class="row">
-					<div class="span4">
+			 <?=$this -> load -> view('global/warning') ?>
 
-						<?=$this -> load -> view('global/calculator') ?>
-					</div>
-					<div class="span8">
-						<div class="clearfix hero-convey">
-							<div class="pull-right color-bg pad10">
-							<p class="text-animate-5 clearfix">Call us on</p><br/>
-							<p class="text-animate-12 clearfix">01708 757575</p>
-							<br/>
-							<h4>9:00am - 6:00pm Monday to Friday
-							(Standard Call charges apply)</h4>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--/slideshow-->
-
-				<!-- End  SLIDER -->
-
-				<!-- middle container (Main Content) -->
-
-				<!-- Catch text -->
-				<div class="row">
-					<div class="span12">
-						<div class="catchText">
-							<div class="row">
-								<div class="span9">
-									<p>
-										Online Conveyancing Quote Calculator from the Top Tier Legal 500 Commercial Property Solicitor in Essex
-									</p>
-								</div>
-								<div class="span3">
-
-									<button class="btn-large btn color-bg" type="button" data-toggle="modal" data-target="#myModal">
-										Request a Call Back
-									</button>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Catch text -->
-
-				<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-							×
-						</button>
-						<h3 id="myModalLabel">Modal header</h3>
-					</div>
-					<div class="modal-body">
-						<p>
-							One fine body...
-						</p>
-					</div>
-					<div class="modal-footer">
-						<button class="btn" data-dismiss="modal" aria-hidden="true">
-							Close
-						</button>
-						<button class="btn btn-primary">
-							Save changes
-						</button>
-					</div>
-				</div>
-
-				
+					<?=$this->load->view('global/'.$main_content)?>
 				
 
-				<!-- This row contains // Latest from blog -->
-				<div class="row outerDiv">
-
-					<!-- Latest from blog -->
-					<section class="span12 latestBlog">
-						<h2>Latest From Blog</h2>
-						<!-- Flex Carousel -->
-						<div class="flexslider carousel">
-							<ul class="slides tooltip-title">
-
-								<li>
-									<div class="myCarousel carousel slide marB0">
-										<!-- Carousel items -->
-										<div class="carousel-inner">
-											<div class="item active">
-												<a href="#"><img alt=""  src="images/img/img19.jpg" /></a>
-											</div>
-											<div class="item">
-												<a href="#"><img alt=""  src="images/img/img20.jpg" /></a>
-											</div>
-											<div class="item">
-												<a href="#"><img alt=""  src="images/img/img21.jpg" /></a>
-											</div>
-										</div>
-										<!-- Carousel nav -->
-										<a class="carousel-control left" href=".myCarousel" data-slide="prev">&lsaquo;</a>
-										<a class="carousel-control right" href=".myCarousel" data-slide="next">&rsaquo;</a>
-									</div>
-									<h4 class="marB5 noBg">
-									<div class="type-icon color-bg">
-										<i class="icon-picture"></i>
-									</div><a href="blog_details.html">Post Name</a>
-									<br/>
-									<span class="date">June 25, 2012 / 12 Comments</span></h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Vestibulum at velit id massa dignissim consectetur ut quis felis.
-										<a rel="tooltip" class="blogDetails" title="Details" href="blog_details.html"><i class="icon-link"></i></a>
-									</p>
-								</li>
-
-								<li>
-									<audio src="mp3/bird.mp3" preload="none" />
-									</audio>
-									<h4 class="marB5 noBg">
-									<div class="type-icon color-bg">
-										<i class="icon-volume-down"></i>
-									</div><a href="blog_details.html">Post Name</a>
-									<br/>
-									<span class="date">June 25, 2012 / 12 Comments</span></h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Vestibulum at velit id massa dignissim.
-										<a rel="tooltip" class="blogDetails" title="Details" href="blog_details.html"><i class="icon-link"></i></a>
-									</p>
-								</li>
-
-								<li>
-									<h4 class="marB5 noBg">
-									<div class="type-icon color-bg">
-										<i class="icon-file"></i>
-									</div><a href="blog_details.html">Post Name</a>
-									<br/>
-									<span class="date">June 25, 2012 / 12 Comments</span></h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Vestibulum at velit id massa dignissim consectetur ut quis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Vestibulum at velit id massa dignissim consectetur ut quis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Vestibulum at velit id massa dignissim consectetur ut.
-										<a rel="tooltip" class="blogDetails" title="Details" href="blog_details.html"><i class="icon-link"></i></a>
-									</p>
-								</li>
-
-								<li>
-									<div class="video-container">
-										<iframe src="http://player.vimeo.com/video/25541923?badge=0&amp;color=c9161f" width="500" height="375" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-									</div>
-									<h4 class="marB5 noBg">
-									<div class="type-icon color-bg">
-										<i class="icon-facetime-video"></i>
-									</div><a href="blog_details.html">Post Name</a>
-									<br/>
-									<span class="date">June 25, 2012 / 12 Comments</span></h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Vestibulum at velit.
-										<a rel="tooltip" class="blogDetails" title="Details" href="blog_details.html"><i class="icon-link"></i></a>
-									</p>
-								</li>
-
-								<li>
-									<a href="#"><img alt=""  src="images/img/img23.jpg" /></a>
-									<h4 class="marB5 noBg">
-									<div class="type-icon color-bg">
-										<i class="icon-picture"></i>
-									</div><a href="blog_details.html">Post Name</a>
-									<br/>
-									<span class="date">June 25, 2012 / 12 Comments</span></h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Vestibulum at velit id massa dignissim consectetur ut quis felis.
-										<a rel="tooltip" class="blogDetails" title="Details" href="blog_details.html"><i class="icon-link"></i></a>
-									</p>
-								</li>
-
-								<li>
-									<a href="#"><img alt=""  src="images/img/img29.jpg" /></a>
-									<h4 class="marB5 noBg">
-									<div class="type-icon color-bg">
-										<i class="icon-picture"></i>
-									</div><a href="blog_details.html">Post Name</a>
-									<br/>
-									<span class="date">June 25, 2012 / 12 Comments</span></h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Vestibulum at velit id massa dignissim consectetur ut quis felis.
-										<a rel="tooltip" class="blogDetails" title="Details" href="blog_details.html"><i class="icon-link"></i></a>
-									</p>
-								</li>
-
-							</ul>
-						</div>
-					</section>
-					<!--/Latest from blog-->
-				</div>
-				<!--/row-->
+				
 
 			</div>
 			<!--/container-->
@@ -493,6 +302,21 @@
 		<!-- All scripts that shuold be on html file collected here -->
 		<script src="<?=base_url() ?>js/styleswitch.js"></script>
 		<!-- Style Colors Switcher -->
+		
+		
+		<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19623681-21']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 
 	</body>
 </html>

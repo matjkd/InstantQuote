@@ -160,9 +160,9 @@ class Quote extends MY_Controller {
         /* form validation */
         if ($this->input->post('buying_price') == NULL && $this->input->post('selling_price') == NULL) {
 
-            $data['main'] = "quote/noresults";
+            $data['main_content'] = "quote/noresults";
         } else {
-            $data['main'] = "quote/results";
+            $data['main_content'] = "quote/results";
         }
         /* Set the main inputs here */
         $purchasecost = $this->input->post('buying_price');
@@ -180,7 +180,7 @@ class Quote extends MY_Controller {
             $data['message'] = $this->alertmessage;
         }
         $this->load->vars($data);
-        $this->load->view('template/ker');
+        $this->load->view('template/bootstrap');
     }
 
     function printout() {

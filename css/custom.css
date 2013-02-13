@@ -1,6 +1,42 @@
+body.custom {
+	
+	background-color:#ddd;
+}
 .hero-convey {
 padding:30px;	
 	background:url('../images/img/sl-1.jpg');
-	background-size:100%;
+	background-size:800px;
 	min-height:330px;
+	margin-bottom:20px;
+}
+.hero-results {
+	color:#aaa;
+	background:rgb(95,95,95);
+	min-height:330px;
+	margin-bottom:20px;
+}
+
+.hero-results a {
+	color:#fff;
+}
+.latestBlog img {
+	
+	display:none;
+width: 150px;
+
+}
+.text-animate-12 {
+
+line-height: 150%;
+}
+
+.block {
+	border: 1px solid #eee;
+	padding: 10px;
+	margin-top: 0px;
+}
+.member:hover {
+
+background: #00AEC8;
+color: #fff;
 }

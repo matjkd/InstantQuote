@@ -42,6 +42,7 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 $route['terms'] = '/welcome/main';
 $route['about'] = '/welcome/main';
+$route['contact'] = '/welcome/main';
 $route['faq'] = '/welcome/main';
 $route['home'] = '/welcome/main';
 $route['comparequotes'] = '/welcome/main';
