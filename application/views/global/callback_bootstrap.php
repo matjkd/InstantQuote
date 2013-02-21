@@ -1,48 +1,25 @@
-<div class="modal" id="instructModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-			×
-		</button>
-		<h3 id="myModalLabel">Instruct</h3>
-	</div>
-	<div class="modal-body">
-		<p>
-		
-
-    <?= form_open('quote/instruct') ?>
-    
+ <?= form_open('quote/callback') ?>
+   <div class="modal-body">
 
         <p>
-            <label>First Name*</label>
+            First Name*<br/>
 
-            <?= form_input('firstname', set_value('firstname')) ?>
+            <?= form_input('firstname2', set_value('firstname2')) ?>
         </p>
 
         <p>
             Last Name*<br/>
 
-            <?= form_input('lastname', set_value('lastname')) ?>
+            <?= form_input('lastname2', set_value('lastname2')) ?>
         </p>
         <p>
-            Email*<br/>
+            Phone Number*<br/>
 
-            <?= form_input('email', set_value('email')) ?>
-        </p>
-
-        <p>
-            Postal Address*<br/>
-
-            <?= form_textarea('address', set_value('address')) ?>
-        </p>
-        <p>
-            Comments<br/>
-
-            <?= form_textarea('comments', set_value('comments')) ?>
+            <?= form_input('phone2', set_value('phone2')) ?>
         </p>
 
 
-
-        <?php if (!isset($purchasecost)) {
+  <?php if (!isset($purchasecost)) {
             $purchasecost = NULL;
         } ?>
 <?= form_hidden('buying_price', $purchasecost) ?>
@@ -103,24 +80,21 @@
     $leaseholdsaleyes = 1;
     $leaseholdsaleno = 0;
 } ?>
-<?= form_hidden('leaseholdsale', $leaseholdsale) ?>           
-       
-        *required
-    
-	</p>
-	</div>
-	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">
-			Close
-		</button>
-		<button type="submit" name="submit" value="Instruct us" class="btn btn-primary">
-			Instruct Us
-		</button>
-	</div>
+<?= form_hidden('leaseholdsale', $leaseholdsale) ?>   
+*required    
 </div>
+    
+<div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">
+							Close
+						</button>
+						<button type="submit" name="submit" value="email quote" class="btn btn-primary">
+							Call me Back
+						</button>
+						 
+					</div>
+       
+        
+       
+    
 <?= form_close() ?>
-
-
-
-
-

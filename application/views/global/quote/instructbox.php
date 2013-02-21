@@ -1,7 +1,7 @@
 <!-- Catch text -->
 <div class="row">
 
-	<div class=" ">
+	
 
 		<div class="pull-right " >
 
@@ -16,7 +16,7 @@
 			data-toggle="modal" data-toggle="modal" data-target="#instructModal"> Instruct </a>
 		</div>
 
-	</div>
+	
 </div>
 <!-- /Catch text -->
 <?=$this->load->view('global/quote/emailquote')?>

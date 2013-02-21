@@ -223,7 +223,7 @@ class Quote extends MY_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('message', validation_errors());
             $this->alertmessage = validation_errors();
-            $this->onscreen();
+            redirect('/', 'refresh');
         } else {
 
             $phone = $this->input->post('phone2');
@@ -253,8 +253,8 @@ class Quote extends MY_Controller {
 
             $this->postmark->send();
             $this->session->set_flashdata('message', 'Email Sent');
-            $this->alertmessage = 'Email has been sent..';
-            $this->onscreen();
+            $this->alertmessage = 'Email has been sent';
+            redirect('/');
         }
     }
 

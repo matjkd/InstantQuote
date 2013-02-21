@@ -10,7 +10,7 @@
 
 		<!-- Basic Page Needs -->
 		<meta charset="utf-8">
-		<title><?=$title?></title>
+		<title><?=$title ?></title>
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,8 +62,9 @@
 							<!-- logo - font -->
 							<div class="span6 logo">
 								<span class="logoFirst">Conveyancing</span><a href="index.html">Quote</a>
-								<br/>
-								<span class="small">Kenneth Elliott &amp; Rowe</span>
+								
+								<div class="small">Kenneth Elliott &amp; Rowe Solicitors</div>
+								
 							</div>
 
 							<!-- SOCIALS -->
@@ -94,39 +95,39 @@
 								<div class="span9">
 									<ul id="jMenu">
 										<li>
-											<a href="<?=base_url()?>" class="fNiv active">Home
+											<a href="<?=base_url() ?>" class="fNiv active">Home
 											<br/>
-											<span class="smallText">All starts here</span></a>
+											<span class="smallText">start here</span></a>
 
 										</li>
 										<li>
-											<a href="<?=base_url()?>about" class="fNiv">About
+											<a href="<?=base_url() ?>about" class="fNiv">About
 											<br/>
-											<span class="smallText">See our pages</span></a>
+											<span class="smallText">what we do</span></a>
 
 										</li>
 										<li>
-											<a href="<?=base_url()?>terms" class="fNiv">Terms and Conditions
+											<a href="<?=base_url() ?>terms" class="fNiv">Terms and Conditions
 											<br/>
-											<span class="smallText">All the different stuff</span></a>
+											<span class="smallText">legal stuff</span></a>
 
 										</li>
 										<li>
-											<a href="<?=base_url()?>comparequotes" href="#" class="fNiv">Comparing Quotes
+											<a href="<?=base_url() ?>comparequotes" href="#" class="fNiv">Comparing Quotes
 											<br/>
-											<span class="smallText">Work we are proud of</span></a>
+											<span class="smallText">what to look out for</span></a>
 
 										</li>
 
 										<li>
-											<a href="<?=base_url()?>contact" class="fNiv last">Contact
+											<a href="<?=base_url() ?>contact" class="fNiv last">Contact
 											<br/>
-											<span class="smallText">Send message to us</span></a>
+											<span class="smallText">how to get in touch</span></a>
 										</li>
 									</ul>
 								</div>
 
-								<!-- search -->
+								<!-- search 
 								<div class="span3 searchTop">
 									<form class="form-search pull-right marR10">
 										<input type="text" class="input-medium search-query inputSearchStyle" value="Looking for somthing ?" onblur="if(this.value == '') { this.value = 'Looking for somthing ?'; }" onfocus="if(this.value == 'Looking for somthing ?') { this.value = ''; }" />
@@ -135,7 +136,7 @@
 										</button>
 									</form>
 								</div>
-								<!-- /search -->
+								 /search -->
 
 							</div>
 							<!--/row-->
@@ -159,13 +160,15 @@
 
 			 <?=$this -> load -> view('global/warning') ?>
 
-					<?=$this->load->view('global/'.$main_content)?>
+					<?=$this -> load -> view('global/' . $main_content) ?>
 				
 
 				
 
-			</div>
-			<!--/container-->
+			</div >
+			<!--/ maincontainer-->
+			
+			
 			<!-- Footer
 			=============================================================================================================
 			-->
@@ -177,8 +180,8 @@
 							<div class="span2">
 								<h4>About Us</h4>
 								<p>
-									Consectetur adipiscing elit aeneane lorem lipsum, condimentum ultrices consequat eu,
-									vehicula mauris lipsum adipiscing lipsum aenean orci lorem Asequat.
+									At kenneth elliott and rowe we make buying or selling your home as painless as possible. 
+									We are recognised as the best commercial property solicitor in Essex
 								</p>
 							</div>
 							<!-- Contacts -->
@@ -215,11 +218,10 @@
 									Subscribe to our e-mail newsletter to receive updates.
 									<br/>
 									<br/>
-									<form class="subscribe">
-										<input class="inputSubscribe" type="text" placeholder="Enter Your Email" />
-										<button class="btn btn-warning btnSubscribe">
-											Send
-										</button>
+									<form action="http://redstudio.us1.list-manage.com/subscribe/post?u=07f8348178863dab1d4d377a3&amp;id=c4a1249a4d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+										<input class="inputSubscribe" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required  placeholder="Enter Your Email" />
+										
+										<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"  class="btn btn-warning btnSubscribe">
 									</form>
 								</div>
 							</div>
@@ -234,20 +236,16 @@
 							<div class="span6">
 								<ul class="footer-social tooltip-title">
 									<li>
-										<a href="#" rel="tooltip" title="facebook"><i class="icon-facebook-sign"></i></a>
+										<a target="_blank"  href="http://www.facebook.com/kennethelliottrowe" rel="tooltip" title="facebook"><i class="icon-facebook-sign"></i></a>
 									</li>
 									<li>
-										<a href="#" rel="tooltip" title="twitter"><i class="icon-twitter-sign"></i></a>
+										<a target="_blank"  href="https://twitter.com/kersolicitors" rel="tooltip" title="twitter"><i class="icon-twitter-sign"></i></a>
 									</li>
 									<li>
-										<a href="#" rel="tooltip" title="google plus"><i class="icon-google-plus-sign"></i></a>
+										<a target="_blank" href="https://plus.google.com/u/0/111287847318681499337/" rel="tooltip" title="google plus"><i class="icon-google-plus-sign"></i></a>
 									</li>
-									<li>
-										<a href="#" rel="tooltip" title="piterest"><i class="icon-pinterest-sign"></i></a>
-									</li>
-									<li>
-										<a href="#" rel="tooltip" title="linked in"><i class="icon-linkedin-sign"></i></a>
-									</li>
+									
+								
 								</ul>
 							</div>
 						</div>
@@ -305,16 +303,18 @@
 		
 		
 		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-19623681-21']);
+			_gaq.push(['_trackPageview']);
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-19623681-21']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
 
 </script>
 

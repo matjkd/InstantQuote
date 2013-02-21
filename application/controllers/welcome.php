@@ -26,6 +26,7 @@ class Welcome extends CI_Controller {
     }
 
     public function index() {
+    	$this->session->keep_flashdata('message');
         redirect('/home');
     }
 
@@ -51,6 +52,11 @@ class Welcome extends CI_Controller {
 			$data['main_content'] = $row->main_content;
 
         endforeach;
+		
+		
+		if($this->session->flashdata('message')) {
+            $data['message'] = $this->session->flashdata('message');
+		}
 
         $data['main'] = 'global/mainpage';
         $data['slideshow'] = 'header/slideshow';

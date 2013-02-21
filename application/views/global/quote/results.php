@@ -75,14 +75,13 @@
     
    
     
-   	<div class="row outerDiv " >
+   	<div class="row" >
    		
    		        <!-- our services -->
       
    		
        	<!-- our mission -->
-       	 <?php if ($purchasecost != NULL) {
-    ?>   
+       	 <?php if ($purchasecost != NULL) {  ?>   
        	<div class="<?=$feeclass ?>  centered     ">
        		
        		<div class="block tooltip-title">
@@ -237,7 +236,7 @@
     
     
     
-</div><!--/Main content--> 
+</div><!--/Main content er--> 
 
 
 
