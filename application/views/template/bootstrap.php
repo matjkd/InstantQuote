@@ -95,7 +95,7 @@
 								<div class="span9">
 									<ul id="jMenu">
 										<li>
-											<a href="<?=base_url() ?>" class="fNiv active">Home
+											<a href="<?=base_url() ?>" class="fNiv">Home
 											<br/>
 											<span class="smallText">start here</span></a>
 
