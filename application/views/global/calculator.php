@@ -17,7 +17,7 @@
 								{
 									$purchasecost = NULL;
 								}
- ?>
+							?>
 
 							<input placeholder="Buying Price" name="buying_price" id="inputIcon" type="text" value="<?=$purchasecost ?>">
 						</div>
@@ -27,11 +27,11 @@
 					<div>
 
 						<?php
-	if (!isset($leasehold))
-	{
-		$leasehold = NULL;
-	}
- ?>
+							if (!isset($leasehold))
+							{
+								$leasehold = NULL;
+							}
+						?>
 						<?php
 							if ($leasehold != 'leasehold')
 							{
@@ -43,16 +43,14 @@
 								$leaseholdyes = 'checked';
 								$leaseholdno = 0;
 							}
-  ?>
+						?>
 
 						<?=form_radio('leasehold', 'leasehold', $leaseholdyes); ?>
 						Leasehold
 						&nbsp; &nbsp;
 						<?=form_radio('leasehold', 'freehold', $leaseholdno); ?>
 						Freehold
-
 					</div>
-
 				</div>
 
 				<div class="control-group">
@@ -63,7 +61,7 @@
 							{
 								$mortgage = NULL;
 							}
- ?>
+						?>
 						<?php
 							if ($mortgage != 1)
 							{
@@ -74,18 +72,39 @@
 							{
 								$mortgageno = 0;
 							}
-  ?>
+						?>
 
-						 <?=form_radio('mortgage', '1', $mortgage); ?>
-							Yes
-							&nbsp; &nbsp;
-						 <?=form_radio('mortgage', '0', $mortgageno); ?>
-							No 
-
+						<?=form_radio('mortgage', '1', $mortgage); ?>
+						Yes
+						&nbsp; &nbsp;
+						<?=form_radio('mortgage', '0', $mortgageno); ?>
+						No
 					</div>
+					<!-- ADMIN ONLY -->
+					<?php $is_logged_in = $this->session->userdata('is_logged_in');
+						$level = $this->session->userdata('role');
+						
+						if($is_logged_in!=NULL || $level == 1)
+						{
+					?>
 
+					<p>
+						<strong>Buying Fees(admin only)</strong>
+						<br/>
+						       <?php
+						if (!isset($purchase_fee))
+						{
+							$purchase_fee = NULL;
+						}
+					?>
+						<div class="input-prepend"><span class="add-on">&pound;</span><?=form_input('buying_fees', $purchase_fee) ?></div>
+						
+					</p>
+
+					<?php } ?>
+
+					<!-- END OF ADMIN ONLY -->
 				</div>
-
 			</div>
 		</div>
 	</div>
@@ -98,11 +117,11 @@
 
 				<div class="control-group">
 					<?php
-					if (!isset($salecost))
-					{
-						$salecost = NULL;
-					}
- ?>
+						if (!isset($salecost))
+						{
+							$salecost = NULL;
+						}
+					?>
 					<label class="control-label"  for="inputIcon">Selling Price</label>
 					<div class="controls">
 						<div class="input-prepend">
@@ -114,11 +133,11 @@
 				<div class="control-group">
 					<div>
 						<?php
-						if (!isset($leaseholdsale))
-						{
-							$leaseholdsale = NULL;
-						}
- ?>
+							if (!isset($leaseholdsale))
+							{
+								$leaseholdsale = NULL;
+							}
+						?>
 						<?php
 							if ($leaseholdsale != 'leasehold')
 							{
@@ -130,18 +149,36 @@
 								$leaseholdsaleyes = 1;
 								$leaseholdsaleno = 0;
 							}
-  ?>
-
-					
+						?>
 
 						<?=form_radio('leaseholdsale', 'leasehold', $leaseholdsaleyes); ?>
 						Leasehold
 						&nbsp; &nbsp;
 						<?=form_radio('leaseholdsale', 'freehold', $leaseholdsaleno); ?>
 						Freehold
-
 					</div>
+					
+					<!-- ADMIN ONLY -->
+					 <?php $is_logged_in = $this->session->userdata('is_logged_in');
+               			 $level = $this->session->userdata('role');
 
+						if($is_logged_in!=NULL || $level == 1)
+						{ ?>
+				                 	
+				           <p>
+				               <strong>Selling Fees(admin only)</strong><br/>
+				             <?php
+						if (!isset($sale_fee))
+						{
+							$sale_fee = NULL;
+						}
+					?>
+				            <div class="input-prepend"> <span class="add-on">&pound;</span>  <?=form_input('selling_fees', $sale_fee)?></div>
+				           </p>
+				           
+				           <?php } ?> 
+				           
+           <!-- END OF ADMIN ONLY -->
 				</div>
 
 			</div>

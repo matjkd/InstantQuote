@@ -22,9 +22,9 @@ function __construct()
             $data['variables'] = $this->admin_model->get_variables();
 
             $data['title'] = "Calculator Admin";
-            $data['main'] = "admin/fees";
+            $data['main_content'] = "admin/fees";
             $this->load->vars($data);
-            $this->load->view('template/ker');
+            $this->load->view('template/bootstrap');
 
         }
 

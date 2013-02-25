@@ -38,7 +38,8 @@ class Quote extends MY_Controller {
         $data['salecost'] = $salecost;
         $data['leaseholdsale'] = $leaseholdsale;
 
-
+ 		$data['purchase_fee1'] = $purchasefee;
+        $data['sale_fee1'] = $salefee;
 
         /* Get Variables */
 
@@ -91,6 +92,7 @@ class Quote extends MY_Controller {
 
 
         if ($data['purchasecost'] != NULL) {
+        	
             /* purchase fee */
             if ($purchasefee > 0) {
                 $data['purchase_fee'] = $purchasefee;
@@ -180,6 +182,7 @@ class Quote extends MY_Controller {
             $data['message'] = $this->alertmessage;
         }
         $this->load->vars($data);
+		
         $this->load->view('template/bootstrap');
     }
 
@@ -312,7 +315,7 @@ class Quote extends MY_Controller {
             if ($level == 1) {
                 $adminemail = $this->session->userdata('email');
             } else {
-                $adminemail = "ker@redstudio.co.uk";
+                $adminemail = "mbs@ker.co.uk";
             }
 
             $clientemail = $this->input->post('email2');
@@ -325,6 +328,7 @@ class Quote extends MY_Controller {
             $config_company_name = $this->config_company_name;
 
             $this->postmark->from($config_email, $config_company_name);
+			$this->postmark->reply_to($adminemail);
             $this->postmark->to($clientemail);
             $this->postmark->cc($adminemail);
             $this->postmark->subject('Your Quote');
@@ -333,6 +337,7 @@ class Quote extends MY_Controller {
             $email['content'] = $this->content_model->get_content('yourquote');
             $this->load->vars($email);
             $msg = $this->load->view('template/email', $email, true);
+			
             $this->postmark->message_html("
                         hi $name,
                         <br/><br/>

@@ -49,6 +49,8 @@
 
 		<div id="wrap" class="boxed">
 
+
+
 			<div class="container">
 
 				<!-- Header
@@ -61,7 +63,7 @@
 						<div class="row">
 							<!-- logo - font -->
 							<div class="span6 logo">
-								<span class="logoFirst">Conveyancing</span><a href="index.html">Quote</a>
+								<span class="logoFirst">Conveyancing</span><a href="<?=base_url()?>">Quote</a>
 								
 								<div class="small">Kenneth Elliott &amp; Rowe Solicitors</div>
 								
@@ -88,7 +90,7 @@
 						</div>
 						<!--/row-->
 
-						<!-- STRAT MENU
+						<!-- START MENU
 						============================================================ -->
 						<nav class="container menu">
 							<div class="row">
@@ -124,22 +126,48 @@
 											<br/>
 											<span class="smallText">how to get in touch</span></a>
 										</li>
+										
 									</ul>
+									
+									
 								</div>
 
-								<!-- search 
-								<div class="span3 searchTop">
-									<form class="form-search pull-right marR10">
-										<input type="text" class="input-medium search-query inputSearchStyle" value="Looking for somthing ?" onblur="if(this.value == '') { this.value = 'Looking for somthing ?'; }" onfocus="if(this.value == 'Looking for somthing ?') { this.value = ''; }" />
-										<button type="submit" class="search-btn">
-											<i class="icon-search"></i>
-										</button>
-									</form>
+								<!-- search -->
+								<div class="span3 searchTop ">
+									<?php $is_logged_in = $this->session->userdata('is_logged_in');
+						$level = $this->session->userdata('role');
+						
+						if($is_logged_in!=NULL || $level == 1)
+						{
+					?>
+					<p class="text-right padR20">Hello <?=$this->session->userdata('firstname')?> <?=$this->session->userdata('lastname')?> | <a href="" data-toggle="modal" data-target="#loginModal">Logout</a></p>
+					<?php } else { ?>
+									<p class="text-right padR20"><a href="" data-toggle="modal" data-target="#loginModal">Login</a></p>
+									<?php } ?>
 								</div>
-								 /search -->
+								
+								
+								 <!-- /search -->
 
 							</div>
 							<!--/row-->
+							
+							<?php 
+										 $is_logged_in = $this->session->userdata('is_logged_in');
+                $level = $this->session->userdata('role');
+										
+										if($is_logged_in!=NULL || $level == 1)
+		{
+			echo "<div class=''>";
+			echo "<ul class='nav nav-pills'>";
+                    echo "<li>".anchor('yourquote', 'Quote Email')."</li>";
+                      echo "<li>".anchor('instruct', 'Instruct Email')."</li>";
+                  echo "<li>".anchor('admin', 'Admin')."</li>";
+				  echo "<li>".anchor('admin/add_local', 'Add local')."</li>";
+				  
+			echo "</ul>";	
+			echo "</div>";  
+		}?>
 						</nav>
 						<!--/MENU-->
 
@@ -163,7 +191,7 @@
 					<?=$this -> load -> view('global/' . $main_content) ?>
 				
 
-				
+				<?=$this->load->view('login/login_modal')?>
 
 			</div >
 			<!--/ maincontainer-->
@@ -295,6 +323,8 @@
 		<!-- audio player -->
 		<script src="<?=base_url() ?>js/prettify.js"></script>
 		<!-- YOU CAN REMOVE IT // it's associated with shortcodes preview boxes -->
+
+<script src="<?=base_url() ?>js/jeditable.js"></script>
 
 		<script src="<?=base_url() ?>js/custom.js"></script>
 		<!-- All scripts that shuold be on html file collected here -->

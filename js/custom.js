@@ -150,6 +150,24 @@ $('#fat-btn')
 	  btn.button('reset')
 	}, 3000)
   });
+  
+  // jeditable
+  
+var uid = 1;
+    $(".edit").editable("admin/edit_variable",
+    	    {
+    	    	indicator : 'Saving...',
+    	    	id   : 'elementid',
+    	    	onblur : 'submit',
+    	        tooltip   : 'Click to edit...',
+    	        submitdata : function()
+    	        {
+    	            return {id : uid};
+    }
+
+
+    	    });
+
 
 
 // Flex carousel
