@@ -6,7 +6,7 @@
                 $email = $this->session->userdata('email');
 				$name = $this->session->userdata('firstname')." ".$this->session->userdata('lastname');
             } else {
-                $adminemail = "mbs@ker.co.uk";
+                $email = "mbs@ker.co.uk";
 				$name = "Mark Sadler";
             }
 			
