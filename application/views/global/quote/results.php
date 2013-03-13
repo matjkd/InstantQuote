@@ -162,7 +162,7 @@
 	<div class="<?=$feeclass ?>  centered  ">
 		<div class="block tooltip-title">
        		<h3>Fees for your Sale</h3>
-          <h5 class="">Based on <?= $leasehold ?> sale of<br/> £<?= $salecost ?></h5>
+          <h5 class="">Based on <?= $leaseholdsale ?> sale of<br/> £<?= $salecost ?></h5>
           
           <table  class="table  table-condensed   ">
           <thead>

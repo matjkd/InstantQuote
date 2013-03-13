@@ -102,7 +102,7 @@ if ($salecost != NULL) {
 
 
         <div class="results">
-            <h2>Based on <?= $leaseholdsale ?> sale of £<?= $salecost ?> </h2>
+            <h2>Based on - <?= $leaseholdsale ?> sale of £<?= $salecost ?> </h2>
             <strong>Our Fees</strong><br/>
             <div class="resultlabel">for your transaction</div>
             <div class="resultvalue">£<?= $sale_fee + $leaseholdsalefee ?></div>
