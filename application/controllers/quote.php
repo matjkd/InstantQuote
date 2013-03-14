@@ -159,6 +159,7 @@ class Quote extends MY_Controller {
 
     function onscreen() {
 
+ 		
         /* form validation */
         if ($this->input->post('buying_price') == NULL && $this->input->post('selling_price') == NULL) {
 
@@ -166,11 +167,18 @@ class Quote extends MY_Controller {
         } else {
             $data['main_content'] = "quote/results";
         }
+
+		//clean buying price
+		$buying_price = str_replace(',', '', $this->input->post('buying_price'));
+		
+		//clean selling price
+		$selling_price = str_replace(',', '', $this->input->post('selling_price'));
+		
         /* Set the main inputs here */
-        $purchasecost = $this->input->post('buying_price');
+        $purchasecost = $buying_price;
         $leasehold = $this->input->post('leasehold');
         $mortgage = $this->input->post('mortgage');
-        $salecost = $this->input->post('selling_price');
+        $salecost = $selling_price;
         $leaseholdsale = $this->input->post('leaseholdsale');
         $purchasefee = $this->input->post('buying_fees');
         $salefee = $this->input->post('selling_fees');
@@ -188,13 +196,17 @@ class Quote extends MY_Controller {
 
     function printout() {
 
-
+	//clean buying price
+		$buying_price = str_replace(',', '', $this->input->post('buying_price'));
+		
+		//clean selling price
+		$selling_price = str_replace(',', '', $this->input->post('selling_price'));
 
         /* Set the main inputs here */
-        $purchasecost = $this->input->post('buying_price');
+        $purchasecost = $buying_price;
         $leasehold = $this->input->post('leasehold');
         $mortgage = $this->input->post('mortgage');
-        $salecost = $this->input->post('selling_price');
+        $salecost = $selling_price;
         $leaseholdsale = $this->input->post('leaseholdsale');
         $purchasefee = $this->input->post('buying_fees');
         $salefee = $this->input->post('selling_fees');
@@ -273,12 +285,19 @@ class Quote extends MY_Controller {
             $this->alertmessage = validation_errors();
             $this->onscreen();
         } else {
+        	
+        		//clean buying price
+				$buying_price = str_replace(',', '', $this->input->post('buying_price'));
+				
+				//clean selling price
+				$selling_price = str_replace(',', '', $this->input->post('selling_price'));
+        	
 
             /* Set the main inputs here */
-            $purchasecost = $this->input->post('buying_price');
+            $purchasecost = $buying_price;
             $leasehold = $this->input->post('leasehold');
             $mortgage = $this->input->post('mortgage');
-            $salecost = $this->input->post('selling_price');
+            $salecost = $selling_price;
             $leaseholdsale = $this->input->post('leaseholdsale');
             $purchasefee = $this->input->post('buying_fees');
             $salefee = $this->input->post('selling_fees');
