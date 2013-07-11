@@ -1,13 +1,13 @@
 <h2>Fees Admin</h2>
-
-<div>
+<div class="row">
+	
+	<div class="span4">
 
    <?=$this->load->view('admin/variables');?>
 
 </div>
 
-
-<div id="conveyancing">
+<div id="conveyancing" class="span8">
     <?=form_open('admin/add_fee')?>
       
            <p>
@@ -42,17 +42,24 @@
    
     <?=form_close()?>
 </div>
-<div style="float:left; padding-left:0px; width:240px; height:270px;">
+	
+</div>
+
+
+<div class="row">
+
+<div class="span3">
 
     <?=$this->load->view('admin/purchase_fees')?>
     </div>
 
-<div style="float:left; padding-left:50px; width:240px; height:270px;">
+<div class="span3">
 <?=$this->load->view('admin/sale_fees')?>
 </div>
-<div style="float:left; padding-left:50px; width:240px; height:270px;">
+<div class="span3">
     <?=$this->load->view('admin/stamp_fees')?>
 </div>
-<div style="float:left; padding-left:0px; width:240px; height:270px;">
+<div class="span3">
     <?=$this->load->view('admin/land_fees')?>
+</div>
 </div>

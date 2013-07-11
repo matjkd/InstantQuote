@@ -87,11 +87,11 @@ function __construct()
     }
 		 
 		  function add_local() {
-        $data['main'] = "admin/add_local";
+        $data['main_content'] = "admin/add_local";
         //$data['pages'] = $this->content_model->get_all_content();
 
         $this->load->vars($data);
-        $this->load->view('template/ker');
+        $this->load->view('template/bootstrap');
     }
 		  
 		  

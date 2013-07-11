@@ -70,9 +70,9 @@ function __construct()
 		else // incorrect username or password
 		{
 			$data['title'] = 'Login Failed';
-			$data['main'] = 'login/fail';
+			$data['main_content'] = 'login/fail';
 			$this->load->vars($data);
-			$this->load->view('template/ker');
+			$this->load->view('template/bootstrap');
 			
 			
 		}

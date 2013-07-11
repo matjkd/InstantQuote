@@ -323,12 +323,14 @@
 		<!-- audio player -->
 		<script src="<?=base_url() ?>js/prettify.js"></script>
 		<!-- YOU CAN REMOVE IT // it's associated with shortcodes preview boxes -->
+		
+		 <script src="<?=base_url()?>js/wymeditor/jquery.wymeditor.min.js"></script>
 
 <script src="<?=base_url() ?>js/jeditable.js"></script>
-
+<script src="<?=base_url() ?>js/script.js"></script>
 		<script src="<?=base_url() ?>js/custom.js"></script>
 		<!-- All scripts that shuold be on html file collected here -->
-		<script src="<?=base_url() ?>js/styleswitch.js"></script>
+		
 		<!-- Style Colors Switcher -->
 		
 		
