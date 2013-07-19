@@ -18,8 +18,18 @@
        	
        	<div class="span8">
        		<div class="well">
-       			<h1><?=$row->title?></h1>
-       			Average Sale Price: <?=$row->sale_price?>
+       			<h1><?=$row->title?>
+       				
+       				<?php 
+$is_logged_in = $this->session->userdata('is_logged_in');
+		if(!isset($is_logged_in) || $is_logged_in == true)
+		{
+			echo "<a href='".base_url()."admin/edit/".$row->menu."'><i class='icon-pencil'></i> </a><br/>";
+		}	
+
+?>
+       			</h1>
+       			Average Sale Price: &pound;<?=$row->sale_price?>
        		</div>
           
            <?=$row->content?>
