@@ -19,9 +19,7 @@ Average Sale Price: <br/><?=form_input('sale_price', $row->sale_price)?>
 <br/>
 
 <?php } ?>
-
-
-<textarea cols=65 rows=20 name="content" id="txtContent" ><?=$row->content?></textarea>
+<textarea  name="content" id="txtContent"><?=$row->content?></textarea>
 <br/>
 
 <?php if($row->news_image != NULL) { ?>

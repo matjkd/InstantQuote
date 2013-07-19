@@ -1,21 +1,36 @@
-
-<?php foreach($content as $row):?>
-<h1><?=$row->title?></h1>
-
-<?php 
-$is_logged_in = $this->session->userdata('is_logged_in');
-		if(!isset($is_logged_in) || $is_logged_in == true)
-		{
-			echo "<a href='".base_url()."admin/edit/".$row->menu."'>edit this page</a><br/>";
-		}	
-
-?>
-
-<?=$row->content?>
-<?php if($row->extra != NULL) {
-$this->load->view('extra/'.$row->extra);	
-} ?>
+ <!-- Content
+    ============================================================================================================== -->  
 	
-	
-	
-<?php endforeach;?>
+    <!-- Title -->
+    <?php foreach($content as $row):?>
+   
+    
+   	<div class="row outerDiv">
+   		
+   		        <!-- our services -->
+        <div class="span4">
+           
+<?=$this->load->view('global/calculator')?>
+
+    </div>
+   		
+       	<!-- our mission -->
+       	
+       	<div class="span8">
+       		<div class="well">
+       			<h1><?=$row->title?></h1>
+       			Average Sale Price: <?=$row->sale_price?>
+       		</div>
+          
+           <?=$row->content?>
+            <?php endforeach; ?>
+        </div>
+            
+
+        
+        
+    
+    
+    
+</div><!--/Main content--> 
+

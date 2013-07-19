@@ -6,7 +6,7 @@ Title: <br/><?=form_input('title')?>
 <br/>
 Menu (url safe, no special characters or spaces): <br/><?=form_input('menu')?>
 <br/>
-<textarea cols=65 rows=20 name="content" id="txtContent"></textarea>
+<textarea cols=65 rows=20 name="content" id="content" class='wymeditor'></textarea>
 <br/>
 
 <hr/>
