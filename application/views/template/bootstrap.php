@@ -205,7 +205,7 @@
 					<div id="mainFooter">
 						<div class="row">
 							<!-- About Us -->
-							<div class="span2">
+							<div class="span4">
 								<h4>About Us</h4>
 								<p>
 									At kenneth elliott and rowe we make buying or selling your home as painless as possible. 
@@ -213,7 +213,7 @@
 								</p>
 							</div>
 							<!-- Contacts -->
-							<div class="span2">
+							<div class="span4">
 								<h4>Contact Us</h4>
 								<address>
 									<strong>Kenneth Elliott &amp; Rowe.</strong>
@@ -231,12 +231,7 @@
 									<a href="mailto:mbs@ker.co.uk">mbs@ker.co.uk</a>
 								</address>
 							</div>
-							<!-- Twitter -->
-							<div class="span4">
-								<h4>Twitter</h4>
-								<div class="tweet"></div>
-								<!-- Twitter Code -->
-							</div>
+							
 							<!-- Flickr -->
 							<div class="span4">
 								<h4>Newsletter</h4>
@@ -311,27 +306,26 @@
 		<!-- PrettyPhoto -->
 		<script src="<?=base_url() ?>js/jquery.liquid-slider-0.1.js"></script>
 		<!-- Testimonials - text slider -->
-		<script src="<?=base_url() ?>js/jquery.tweet.js"></script>
-		<!-- Twitter plugin -->
+		
 		<script src="<?=base_url() ?>js/jflickrfeed.min.js"></script>
 		<!-- jQuery Flickr -->
 		<script src="<?=base_url() ?>js/jquery.ui.totop.js" ></script>
 		<!-- Go to top -->
 		<script src="<?=base_url() ?>js/filterable.pack.js"></script>
 		<!-- Filter portfolio -->
-		<script src="<?=base_url() ?>js/audio.min.js"></script>
-		<!-- audio player -->
+		
 		<script src="<?=base_url() ?>js/prettify.js"></script>
 		<!-- YOU CAN REMOVE IT // it's associated with shortcodes preview boxes -->
-		
-		 <script src="<?=base_url()?>js/wymeditor/jquery.wymeditor.min.js"></script>
+		<script src="<?=base_url() ?>js/editor/innovaeditor.js" type="text/javascript"></script>
+			<script src="<?=base_url() ?>js/editor/innovamanager.js" type="text/javascript"></script>
+		 
 
 <script src="<?=base_url() ?>js/jeditable.js"></script>
 <script src="<?=base_url() ?>js/script.js"></script>
 		<script src="<?=base_url() ?>js/custom.js"></script>
 		<!-- All scripts that shuold be on html file collected here -->
 		
-		<!-- Style Colors Switcher -->
+		
 		
 		
 		<script type="text/javascript">

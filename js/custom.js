@@ -12,9 +12,22 @@
 $(document).ready(function(){
 	
 	
-	//wymeditor
+	
 
-    $('.wymeditor').wymeditor();
+     if ($("#txtContent").length > 0){
+$('#txtContent').liveEdit({
+            css: ['/css/bootstrap.min.css', '/css/bootstrap_extend.css'] /* Apply bootstrap css into the editing area */ ,            
+            groups: [
+                    ["group1", "", ["Bold", "Italic", "Underline", "ForeColor", "RemoveFormat"]],
+                    ["group2", "", ["Bullets", "Numbering", "Indent", "Outdent"]],
+                    ["group3", "", ["Paragraph", "FontSize", "FontDialog", "TextDialog"]],
+                    ["group4", "", ["LinkDialog", "ImageDialog", "TableDialog", "Emoticons", "Snippets"]],
+                    ["group5", "", ["Undo", "Redo", "FullScreen", "SourceDialog"]]
+                    ] /* Toolbar configuration */
+        });
+        
+        $('#txtContent').data('liveEdit').startedit(); /* Run the Editor */
+       }
 
 	
 	$("area[rel^='prettyPhoto']").prettyPhoto();
@@ -110,11 +123,6 @@ $(function () {
 });
 
 
-
-// Audio - music player
-audiojs.events.ready(function() {
-	audiojs.createAll();
-});
 
 
 // First Word Color

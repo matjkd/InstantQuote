@@ -131,7 +131,7 @@ function __construct()
 		$data['page'] = $id;
 		$data['content'] =	$this->content_model->get_content($id);
 		
-		$data['main'] = "admin/edit_content";
+		$data['main_content'] = "admin/edit_content";
 		
 		if($data['menu'] == 'services')
 			{
@@ -140,7 +140,7 @@ function __construct()
 			} 
 	
 		$this->load->vars($data);
-		  $this->load->view('template/ker');
+		  $this->load->view('template/bootstrap');
 	}
 	function edit_content() {
         $this->form_validation->set_rules('title', 'title', 'trim');

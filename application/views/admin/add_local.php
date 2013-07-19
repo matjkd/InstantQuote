@@ -10,7 +10,7 @@ Town: <br/><?=form_input('town')?>
 <br/>
 Average Sale Price: <br/><?=form_input('sale_price')?>
 <br/>
-<textarea cols=65 rows=20 name="content" id="content" class='wymeditor'></textarea>
+<textarea cols=65 rows=20 name="content" id="txtContent" ></textarea>
 <br/>
 <?=form_hidden('category', 'local')?>
 <hr/>
@@ -28,5 +28,5 @@ Sidebox:
 
 
 Extra: <br/><?=form_input('extra')?><br/>
-<input type="submit" class="wymupdate" />
+<input type="submit"  />
 <?=form_close()?> 
