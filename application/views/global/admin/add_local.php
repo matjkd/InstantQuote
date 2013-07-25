@@ -8,12 +8,15 @@ Menu (url safe, no special characters or spaces): <br/><?=form_input('menu')?>
 <br/>
 Town: <br/><?=form_input('town')?>
 <br/>
-Average Sale Price: <br/><?=form_input('sale_price')?>
+Average Sale Price (freehold): <br/><?=form_input('sale_price')?>
+<br/>
+Average Sale Price (leasehold): <br/><?=form_input('sale_price_leasehold')?>
 <br/>
 Content:<br/>
 <textarea name="content" id="txtContent" ></textarea>
 <br/>
 <?=form_hidden('category', 'local')?>
+<?=form_hidden('main_content', 'localPage')?>
 <hr/>
 Meta Description<br/>
 <textarea  cols=65 rows=2 name="meta_desc"></textarea>

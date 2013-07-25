@@ -46,12 +46,28 @@ class Welcome extends CI_Controller {
 
         $data['content'] = $this->content_model->get_content($data['menu']);
 		$data['local'] = $this->content_model->get_content_by_category('local');
+		
+		
         foreach ($data['content'] as $row):
 
             $data['title'] = $row->title;
 			$data['main_content'] = $row->main_content;
+			$data['meta_desc'] = $row->meta_desc;
+			$data['sale_price'] = $row->sale_price;
+			$data['sale_price_leasehold'] = $row->sale_price_leasehold;
 
         endforeach;
+		
+		if($data['sale_price'] > 0) {
+			
+			$data['free_sale'] = $this->conveyquote->quote($data['sale_price'], $leasehold=0, $mortgage=0, $data['sale_price'], $leaseholdsale=0, $purchasefee=0, $salefee=0);
+			
+		}
+if($data['sale_price_leasehold'] > 0) {
+			
+			$data['lease_sale'] = $this->conveyquote->quote($data['sale_price_leasehold'], $leasehold=1, $mortgage=0, $data['sale_price_leasehold'], $leaseholdsale=1, $purchasefee=0, $salefee=0);
+			
+		}
 		
 		
 		if($this->session->flashdata('message')) {

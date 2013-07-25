@@ -54,6 +54,7 @@ class Content_model extends CI_Model {
           	'title' => $this->input->post('title'),
           	'town' => $this->input->post('town'),
           	'sale_price' => $this->input->post('sale_price'),
+          	'sale_price_leasehold' => $this->input->post('sale_price_leasehold'),
             'extra' => $this->input->post('extra'),
             'meta_desc' => $this->input->post('meta_desc'),
             'meta_title' => $this->input->post('meta_title'),
@@ -95,10 +96,12 @@ class Content_model extends CI_Model {
             'menu' => $menu_link,
             'town' => $this->input->post('town'),
             'sale_price' => $this->input->post('sale_price'),
+            'sale_price_leasehold' => $this->input->post('sale_price_leasehold'),
             'category' => set_value('category'),
             'added_by' => $name,
             'meta_desc' => $this->input->post('meta_desc'),
             'meta_title' => $this->input->post('meta_title'),
+              'main_content' => $this->input->post('main_content'),
             'date_added' => $datetime
         );
         $insert = $this->db->insert('content', $form_data);

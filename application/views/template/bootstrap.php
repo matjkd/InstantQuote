@@ -11,7 +11,14 @@
 		<!-- Basic Page Needs -->
 		<meta charset="utf-8">
 		<title><?=$title ?></title>
-		<meta name="description" content="">
+		
+		<?php if(isset($meta_desc)) { ?>
+			<meta name="description" content="<?=$meta_desc?>">
+		<?php } else { ?>
+			<meta name="description" content="">
+			<?php }	?>
+		
+		
 		<meta name="author" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 

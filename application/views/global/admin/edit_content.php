@@ -15,9 +15,11 @@ Menu: <br/><?=form_input('menu', $row->menu)?>
 <?php if($row->category == 'local') { ?>
 Town: <br/><?=form_input('town', $row->town)?>
 <br/>
-Average Sale Price: <br/><?=form_input('sale_price', $row->sale_price)?>
+Average Sale Price (freehold): <br/><?=form_input('sale_price', $row->sale_price)?>
 <br/>
-
+<br/>
+Average Sale Price (leasehold): <br/><?=form_input('sale_price_leasehold', $row->sale_price_leasehold)?>
+<br/>
 <?php } ?>
 <textarea  name="content" id="txtContent"><?=$row->content?></textarea>
 <br/>
