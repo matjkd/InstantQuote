@@ -17,7 +17,7 @@
        	<!-- our mission -->
        	
        	<div class="span8">
-       		<div class="well">
+       		<div class="well " id="freeholdbox">
        			<h1>Conveyancing Solicitors Quote for <?=$row -> town ?>
        				
        				<?php
@@ -33,12 +33,11 @@
        			<div class="row-fluid">
        				
 			
-			<?php $leaseholdselling = $lease_sale['totalsale'];	
-			$leaseholdbuying = $lease_sale['totalpurchase'];			
-			
-			$freeholdselling = $free_sale['totalsale'];
-			$freeholdbuying = $free_sale['totalpurchase'];
-			
+			<?php $leaseholdselling = $lease_sale['totalsale'];
+				$leaseholdbuying = $lease_sale['totalpurchase'];
+
+				$freeholdselling = $free_sale['totalsale'];
+				$freeholdbuying = $free_sale['totalpurchase'];
 			?>
 					
 					
@@ -48,17 +47,18 @@
        			<div class="span12">
        				
        				
-       				Total Legal Fees VAT and Disbursements for Selling: £<?=$freeholdselling?><br/>
-       				Total Legal Fees VAT and Disbursements for Buying: £<?=$freeholdbuying?>
+       				Total Legal Fees VAT and Disbursements for Selling: <strong>£<?=$freeholdselling ?></strong><br/>
+       				Total Legal Fees VAT and Disbursements for Buying: <strong>£<?=$freeholdbuying ?></strong>
        			</div>
        			
        				
        			</div>
-       			
+       			<hr>
+       			<div id="showlease" class="btn">If you are buying or selling a leasehold property (flat or maisonette) click here to update to show the Leasehold Fees</div>
        			&nbsp;
        		</div>
        		
-       		<div class="well">
+       		<div class="well " id="leaseholdbox" style="display:none;">
        			<h1>Conveyancing Solicitors Quote for <?=$row -> town ?>
        				
        				<?php
@@ -82,20 +82,40 @@
        			<div class="span12">
        				
        				
-       				Total Legal Fees VAT and Disbursements for Selling: £<?=$leaseholdselling?><br/>
-       				Total Legal Fees VAT and Disbursements for Buying: £<?=$leaseholdbuying?>
+       				Total Legal Fees VAT and Disbursements for Selling: £<?=$leaseholdselling ?><br/>
+       				Total Legal Fees VAT and Disbursements for Buying: £<?=$leaseholdbuying ?>
        			</div>
        			</div>
-       			
+       			<hr>
+       			<div id="showfreehold" class="btn">If you are buying or selling a freehold property click here to update to show the Freehold Fees</div>
        			&nbsp;
        		</div>
        		
        		
        		
-       		<img width="100%" src="http://maps.googleapis.com/maps/api/staticmap?center=<?=$row -> town ?>&zoom=13&size=800x200&maptype=roadmap&sensor=false"/>
-       		
-          
+          <p>
            <?=$row -> content ?>
+          </p>
+          <?php foreach($random as $randomrow): ?>
+          	<?php
+          	$randomTitle =  str_replace('[town]', $row -> town, $randomrow -> title);
+          	$randomContent = str_replace('[town]', $row -> town, $randomrow -> content);
+          	
+          	
+          	?>
+          	<h2><?=$randomTitle ?>
+          		<?php
+						$is_logged_in = $this -> session -> userdata('is_logged_in');
+						if (!isset($is_logged_in) || $is_logged_in == true)
+						{
+							echo "<a href='" . base_url() . "admin/edit/" . $randomrow -> menu . "'><i class='icon-pencil'></i> </a><br/>";
+						}
+					?></h2>
+          	<?=$randomContent ?>
+          	<?php endforeach; ?>
+          
+          
+          
             <?php endforeach; ?>
             
            <!-- <pre> <?=print_r($lease_sale)?></pre> -->

@@ -29,6 +29,19 @@ class Content_model extends CI_Model {
 			}
 	}
 	
+	
+	function get_random_content($category) {
+		$this->db->where('category', $category);
+		
+		$this->db->order_by('content_id', 'RANDOM');
+		$this->db->limit(1);
+		$query = $this->db->get('content');
+		if($query->num_rows == 1)
+			{
+				return $query->result();
+			}
+	}
+	
 	 /**
      *
      * @param type $filename
