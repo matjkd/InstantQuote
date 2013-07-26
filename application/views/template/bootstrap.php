@@ -10,7 +10,13 @@
 
 		<!-- Basic Page Needs -->
 		<meta charset="utf-8">
-		<title><?=$title ?></title>
+		
+		
+		<?php if(isset($meta_title) && strlen(trim($meta_title)) > 2) { ?>
+			<title><?=$meta_title ?></title>
+		<?php } else { ?>
+			<title><?=$title ?></title>
+			<?php }	?>
 		
 		<?php if(isset($meta_desc)) { ?>
 			<meta name="description" content="<?=$meta_desc?>">
@@ -257,8 +263,23 @@
 							</div>
 						</div>
 
+
+<div class="row bord-top">
+							<div class="span12 copyrights">
+								<?php if(isset($local)) { foreach($local as $row):?>
+									
+									<a href="<?=base_url()?>welcome/main/<?=$row->menu?>">Conveyancing in <?=$row->town?></a> |
+				
+									
+									<?php endforeach; } ?>
+								
+								
+							</div>
+
+							
+						</div>
 						<!-- Copy rights + subscribtion area -->
-						<div class="row bord-top">
+						<div class="row ">
 							<div class="span6 copyrights">
 								Copyright 2013  Kenneth Elliott + Rowe. All Rights Reserved. Developed by <a href="https://www.redstudio.co.uk">Redstudio Design Limited</a>
 							</div>

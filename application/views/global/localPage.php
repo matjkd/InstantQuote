@@ -18,7 +18,7 @@
        	
        	<div class="span8">
        		<div class="well " id="freeholdbox">
-       			<h1>Conveyancing Solicitors Quote for <?=$row -> town ?>
+       			<h1>Conveyancing Solicitors Quote for <?=$row -> title ?>
        				
        				<?php
 						$is_logged_in = $this -> session -> userdata('is_logged_in');

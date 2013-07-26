@@ -53,6 +53,7 @@ class Welcome extends CI_Controller {
             $data['title'] = $row->title;
 			$data['main_content'] = $row->main_content;
 			$data['meta_desc'] = $row->meta_desc;
+			$data['meta_title'] = $row->meta_title;
 			$data['sale_price'] = $row->sale_price;
 			$data['sale_price_leasehold'] = $row->sale_price_leasehold;
 
