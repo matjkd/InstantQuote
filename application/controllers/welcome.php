@@ -60,12 +60,12 @@ class Welcome extends CI_Controller {
 		
 		if($data['sale_price'] > 0) {
 			
-			$data['free_sale'] = $this->conveyquote->quote($data['sale_price'], $leasehold=0, $mortgage=0, $data['sale_price'], $leaseholdsale=0, $purchasefee=0, $salefee=0);
+			$data['free_sale'] = $this->conveyquote->quote($data['sale_price'], $leasehold='freehold', $mortgage=0, $data['sale_price'], $leaseholdsale='freehold', $purchasefee=0, $salefee=0);
 			
 		}
 if($data['sale_price_leasehold'] > 0) {
 			
-			$data['lease_sale'] = $this->conveyquote->quote($data['sale_price_leasehold'], $leasehold=1, $mortgage=0, $data['sale_price_leasehold'], $leaseholdsale=1, $purchasefee=0, $salefee=0);
+			$data['lease_sale'] = $this->conveyquote->quote($data['sale_price_leasehold'], $leasehold='leasehold', $mortgage=0, $data['sale_price_leasehold'], $leaseholdsale='leasehold', $purchasefee=0, $salefee=0);
 			
 		}
 		
