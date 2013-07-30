@@ -96,7 +96,7 @@ class Quote extends MY_Controller {
             /* purchase fee */
             if ($purchasefee > 0) {
                 $data['purchase_fee'] = $purchasefee;
-              //  $data['leaseholdfee'] = 0;
+                $data['leaseholdfee'] = 0;
             } else {
                 $data['purchase_fee'] = $this->admin_model->calculate_fee('purchasefee', $data['purchasecost']);
             }
@@ -130,7 +130,7 @@ class Quote extends MY_Controller {
 
             if ($salefee > 0) {
                 $data['sale_fee'] = $salefee;
-               // $data['leaseholdsalefee'] = 0;
+                $data['leaseholdsalefee'] = 0;
             } else {
                 $data['sale_fee'] = $this->admin_model->calculate_fee('salefee', $data['salecost']);
             }
