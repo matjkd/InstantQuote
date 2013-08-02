@@ -193,11 +193,11 @@
 <?=form_close() ?>
 
 
- <?php foreach($content as $side):?>
+ <?php if(isset($content)) { foreach($content as $side):?>
  	
  	<?php if(strlen(trim($side->town)) > 2) { ?>
  		
  		<img width="100%" src="http://maps.googleapis.com/maps/api/staticmap?center=<?=$side -> town ?>&zoom=13&size=400x400&maptype=roadmap&sensor=false"/>
  		<?php } ?>
  	
- 	<?php endforeach; ?>
+ 	<?php endforeach; }?>
