@@ -27,7 +27,7 @@ class Welcome extends CI_Controller {
 
     public function index() {
     	$this->session->keep_flashdata('message');
-        redirect('/home');
+       $this->main();
     }
 
     function main() {
