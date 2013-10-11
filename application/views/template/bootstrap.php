@@ -281,7 +281,7 @@
 						<!-- Copy rights + subscribtion area -->
 						<div class="row ">
 							<div class="span6 copyrights">
-								Copyright 2013  Kenneth Elliott + Rowe. All Rights Reserved. Developed by <a href="https://www.redstudio.co.uk">Redstudio Design Limited</a>
+								Copyright 2013  Kenneth Elliott + Rowe. All Rights Reserved. Developed by <a href="http://www.redstudio.co.uk">Redstudio Design Limited</a>
 							</div>
 
 							<div class="span6">
