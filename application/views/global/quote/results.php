@@ -56,7 +56,9 @@
     					(including stamp duty)
     					 <?php } ?>
     					 </small></td>
-    			<td class=""><h1 style="color:#fff"> £<?= $grandtotal ?></h1></td>
+    			<td class=""><h1 style="color:#fff"> £<?=$newStamp+$grandtotalnostamp?></h1>
+    			
+    			</td>
     		</tr>
     	</table>
     	<?php $info = "Details of your quote are listed below. If you need further help contact us on 01708 757575 or email <a target='_blank' href='mailto:mbs@ker.co.uk'>mbs@ker.co.uk</a>. or request a call back";?>
@@ -129,7 +131,7 @@
           	<tbody>
           	<tr>
           		<td>Stamp Duty</td>
-          		<td> £<?= $stamp_fee ?></td>
+          		<td> £<?= $newStamp ?></td>
           	</tr>
           	<tr>
           		<td>Land Registry</td>

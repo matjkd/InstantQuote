@@ -94,6 +94,13 @@ $CI->load->model('admin_model');
             } else {
                 $data['stamp_duty_forms'] = 0;
             }
+			
+			/* New Stamp Duty */
+			
+			$newstamp = $CI->admin_model->get_stamp_fees($data['purchasecost']);
+			foreach($newstamp as $row):
+				 $data['newStamp'] = "test";
+			endforeach;
 
             /* TOTAL PURCHASE */
             $data['feevat'] = ($data['purchase_fee'] + $data['banktransfer_purchase'] + $data['mortgagefee'] + $data['leaseholdfee'] + $data['stamp_duty_forms']) * $vat;

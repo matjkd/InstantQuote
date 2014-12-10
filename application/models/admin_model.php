@@ -31,6 +31,18 @@ class Admin_model extends CI_Model {
 			}
 
         }
+		
+		function get_stamp_fees($purchase_cost){
+			
+			 $this->db->where('fee_type', 'stampfee');
+			  $this->db->where('low <=', $purchase_cost);
+			  $this->db->order_by('low');
+			  $query = $this->db->get('fees', 'asc');
+			  if($query->num_rows > 0);
+			{
+				return $query->result();
+			}
+		}
 
 
         function get_variables()
