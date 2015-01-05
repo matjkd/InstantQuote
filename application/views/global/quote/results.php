@@ -56,7 +56,7 @@
     					(including stamp duty)
     					 <?php } ?>
     					 </small></td>
-    			<td class=""><h1 style="color:#fff"> £<?=$newStamp+$grandtotalnostamp?></h1>
+    			<td class=""><h1 style="color:#fff"> £<?=$totalsale+$totalpurchase?></h1>
     			
     			</td>
     		</tr>
