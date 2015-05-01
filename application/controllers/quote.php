@@ -265,9 +265,12 @@ class Quote extends MY_Controller {
         $data['main'] = "quote/results";
         $this->load->vars($data);
         $stream = TRUE;
+		$now = time();
+
+		$gmt = unix_to_human($now);
         $html = $this->load->view('template/pdf', $data, true);
 		//echo $html;
-        pdf_create($html, 'quote', $stream);
+        pdf_create($html, 'quote'.$gmt.'', $stream);
     }
 
     function callback() {
@@ -360,6 +363,7 @@ class Quote extends MY_Controller {
             $data['main'] = "quote/results";
             $this->load->vars($data);
             $stream = FALSE;
+			
             $html = $this->load->view('template/pdf', $data, true);
             $data1 = pdf_create($html, 'quote', $stream);
 
