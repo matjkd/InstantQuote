@@ -73,7 +73,8 @@ class Content_model extends CI_Model {
             'meta_title' => $this->input->post('meta_title'),
             'sidebox' => $this->input->post('sidebox'),
             'start_publish' => $this->input->post('startdate_unix'),
-            'end_publish' => $this->input->post('enddate_unix')
+            'end_publish' => $this->input->post('enddate_unix'),
+			'local_search_fee' => $this->input->post('localsearch')
 			        );
 
 
@@ -115,6 +116,7 @@ class Content_model extends CI_Model {
             'meta_desc' => $this->input->post('meta_desc'),
             'meta_title' => $this->input->post('meta_title'),
               'main_content' => $this->input->post('main_content'),
+              'local_search_fee' => $this->input->post('localsearch'),
             'date_added' => $datetime
         );
         $insert = $this->db->insert('content', $form_data);

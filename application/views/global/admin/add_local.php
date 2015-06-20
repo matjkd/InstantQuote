@@ -12,6 +12,8 @@ Average Sale Price (freehold): <br/><?=form_input('sale_price')?>
 <br/>
 Average Sale Price (leasehold): <br/><?=form_input('sale_price_leasehold')?>
 <br/>
+Localsearch: <br/><?=form_input('local_search')?>
+<br/>
 Content:<br/>
 <textarea name="content" id="txtContent" ></textarea>
 <br/>

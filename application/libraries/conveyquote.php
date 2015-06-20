@@ -2,11 +2,14 @@
 
 class ConveyQuote {
 
-    public function quote($purchase=0, $leasehold=0, $mortgage=0, $salecost=0, $leaseholdsale=0, $purchasefee=0, $salefee=0)
+    public function quote($purchase=0, $leasehold=0, $mortgage=0, $salecost=0, $leaseholdsale=0, $purchasefee=0, $salefee=0, $localsearch=0)
     {
          /* Add form validation here */
          $CI =& get_instance();
 $CI->load->model('admin_model');
+
+       /* Add form validation here */
+
 
         /* End of Form validation */
         $vat = 0.2;
@@ -33,7 +36,7 @@ $CI->load->model('admin_model');
             } else {
                 $data['leaseholdfee'] = 0;
             }
-
+  
             //mortgage fee
             if ($data['mortgage'] == 1 && $data['purchasecost'] != NULL) {
                 $data['mortgagefee'] = $row->mortgage_fee;
@@ -51,7 +54,12 @@ $CI->load->model('admin_model');
 
             $data['landcharge'] = $row->landcharge;
 
+if($localsearch == 0) {
             $data['localsearch'] = $row->localsearch;
+            }
+else {
+	$data['localsearch'] = $localsearch;
+}
             $data['priority_search'] = $row->priority_search;
 
             if ($data['purchasecost'] != NULL) {
@@ -98,14 +106,47 @@ $CI->load->model('admin_model');
 			/* New Stamp Duty */
 			
 			$newstamp = $CI->admin_model->get_stamp_fees($data['purchasecost']);
+			$data['newStamp'] = 0;
+			$oldhigh = 0;
+			//echo $data['purchasecost'];
+			//echo "<pre>";
+			//print_r($newstamp);
+			//echo "</pre>";
+			$counter = 0;
 			foreach($newstamp as $row):
-				 $data['newStamp'] = "test";
+				$counter = $counter + 1;
+				if($data['purchasecost'] > $row->high){
+					$remain = $row->high - $oldhigh;
+					
+					$fee = ($remain / 100) * $row->fee;
+					//echo "$fee<br/>";
+					$data['newStamp'] = $data['newStamp'] + $fee;
+					$oldhigh = $row->high;
+				}
+				
+				
+						
+			endforeach;
+			
+			foreach($newstamp as $row):
+				
+				
+				if($data['purchasecost'] <= $row->high){
+					$remain =  $data['purchasecost'] - $row->low;
+					$fee = ($remain / 100) * $row->fee;
+					//echo "er $fee<br/>";
+					$data['newStamp'] = $data['newStamp'] + $fee;
+					$er = $remain;
+					//echo "<br/><br/>".$er;
+				}
+				$data['stamp_fee'] = $data['newStamp'];
+						
 			endforeach;
 
             /* TOTAL PURCHASE */
             $data['feevat'] = ($data['purchase_fee'] + $data['banktransfer_purchase'] + $data['mortgagefee'] + $data['leaseholdfee'] + $data['stamp_duty_forms']) * $vat;
             $data['feevat'] = number_format($data['feevat'], 2, '.', '');
-            $data['totalpurchase'] = $data['purchase_fee'] + $data['leaseholdfee'] + $data['feevat'] + $data['land_fee'] + $data['stamp_fee'] + $data['banktransfer_purchase'] + $data['stamp_duty_forms'] + $data['mortgagefee'] + $data['landcharge'] + $data['localsearch'] + $data['priority_search'];
+            $data['totalpurchase'] = $data['purchase_fee'] + $data['leaseholdfee'] + $data['feevat'] + $data['land_fee'] + $data['newStamp'] + $data['banktransfer_purchase'] + $data['stamp_duty_forms'] + $data['mortgagefee'] + $data['landcharge'] + $data['localsearch'] + $data['priority_search'];
             $data['totalpurchase'] = number_format($data['totalpurchase'], 2, '.', '');
 
             $purchasecount = 1;
@@ -139,6 +180,9 @@ $CI->load->model('admin_model');
         $time = time();
 
 
+
+
+      
 
 
         $data['datetime'] = mdate($datestring, $time);

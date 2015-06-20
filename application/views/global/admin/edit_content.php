@@ -20,6 +20,8 @@ Average Sale Price (freehold): <br/><?=form_input('sale_price', $row->sale_price
 <br/>
 Average Sale Price (leasehold): <br/><?=form_input('sale_price_leasehold', $row->sale_price_leasehold)?>
 <br/>
+Local Search: <br/><?=form_input('localsearch', $row->local_search_fee)?>
+<br/>
 <?php } ?>
 <textarea  name="content" id="txtContent"><?=$row->content?></textarea>
 <br/>

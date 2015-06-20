@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Patterson extends CI_Controller {
 
     /**
      * Index Page for this controller.
@@ -80,7 +80,7 @@ if($data['sale_price_leasehold'] > 0) {
         $data['main'] = 'global/mainpage';
         $data['slideshow'] = 'header/slideshow';
         $this->load->vars($data);
-        $this->load->view('template/bootstrap');
+        $this->load->view('template/patterson');
     }
 	
 	function testing() {
@@ -108,7 +108,7 @@ if($data['sale_price_leasehold'] > 0) {
         $data['main'] = 'global/mainpage';
         $data['slideshow'] = 'header/slideshow';
         $this->load->vars($data);
-		 $this->load->view('template/bootstrap');
+		 $this->load->view('template/patterson');
 	}
 
 }
