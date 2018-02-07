@@ -60,7 +60,7 @@
 				<div class="row outerDiv">
 
 					<!-- Latest from blog -->
-					<?=$this->load->view('extra/bootstrap_news')?>
+					<!-- <?=$this->load->view('extra/bootstrap_news')?> -->
 					
 				</div>
 				<!--/row-->
