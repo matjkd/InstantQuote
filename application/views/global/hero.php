@@ -59,8 +59,7 @@
 <!-- This row contains // Latest from blog -->
 				<div class="row outerDiv">
 
-					<!-- Latest from blog -->
-					<!-- <?=$this->load->view('extra/bootstrap_news')?> -->
+					
 					
 				</div>
 				<!--/row-->
