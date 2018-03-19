@@ -68,12 +68,12 @@
         <table>
             <tr>
                 <td width="380px">
-                   <img style="width:210px; margin-bottom:3px; margin-top:10px;"  src="/home/cloud/domains/redtest.info/public_html/quote/images/logo/quoteheading.jpg" alt="test">
+                   <img style="width:210px; margin-bottom:3px; margin-top:10px;"  src="/home/cloud/domains/convey-quote.co.uk/public_html/images/logo/quoteheading.jpg" alt="test">
                     
                 </td>
 
                 <td align=right>
-                	<img style="width:150px; margin-bottom:3px; margin-top:10px;"  src="/home/cloud/domains/redtest.info/public_html/quote/images/logo/ker.jpg" alt="test">
+                	<img style="width:150px; margin-bottom:3px; margin-top:10px;"  src="/home/cloud/domains/convey-quote.co.uk/public_html/images/logo/ker.jpg" alt="test">
                     
                     <?php echo $config_address; ?><br/>
                     <?php echo "<strong>t $config_phone</strong>  <br/><strong>e</strong> $config_email  <br/> <strong>w</strong> $config_website"; ?>
