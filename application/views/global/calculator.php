@@ -1,5 +1,6 @@
 <?php $is_logged_in = $this->session->userdata('is_logged_in');
-						$level = $this->session->userdata('role');?>
+						$level = $this->session->userdata('role');
+echo "test"; ?>
 <?=form_open('quote/onscreen') ?>
 <div class="accordion" id="accordion2">
 	<div class="accordion-group">
