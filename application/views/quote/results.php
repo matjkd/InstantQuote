@@ -59,7 +59,7 @@ if ($purchasecost != NULL) {
                 <strong>Other Costs.</strong><br/>
 
 
-                <div class="resultlabel">Stamp Duty</div>
+                <div class="resultlabel">Stamp Duty Cost</div>
                 <div class="resultvalue">£<?= $stamp_fee ?></div>
                 
                 <div class="resultlabel">First Time Buyer Discount</div>
