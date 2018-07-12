@@ -1,3 +1,5 @@
+<?php $is_logged_in = $this->session->userdata('is_logged_in');
+						$level = $this->session->userdata('role');?>
 <?=form_open('quote/onscreen') ?>
 <div class="accordion" id="accordion2">
 	<div class="accordion-group">
@@ -23,6 +25,9 @@
 						</div>
 					</div>
 				</div>
+				<?php
+						if($is_logged_in!=NULL || $level == 1)
+						{ ?>
 				<div class="control-group">
 					<label class="control_label" for="inputIcon">First Time Buyer?</label>
 					<?php
@@ -46,6 +51,7 @@
 				<?=form_radio('firsttime', 'Yes', $firsttimeyes); ?>
 				<?=form_radio('firsttime', 'No', $firsttimeno); ?>
 				</div>
+				<?php } ?>
 				
 				<div class="control-group">
 					<div>
@@ -106,12 +112,10 @@
 						No
 					</div>
 					<!-- ADMIN ONLY -->
-					<?php $is_logged_in = $this->session->userdata('is_logged_in');
-						$level = $this->session->userdata('role');
-						
+					
+						<?php
 						if($is_logged_in!=NULL || $level == 1)
-						{
-					?>
+						{ ?>
 
 					<p>
 						<strong>Buying Fees(admin only)</strong>
