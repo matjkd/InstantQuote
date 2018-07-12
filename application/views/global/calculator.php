@@ -24,6 +24,30 @@
 					</div>
 				</div>
 				<div class="control-group">
+					<label class="control_label" for="inputIcon">First Time Buyer?</label>
+					<?php
+	if(!isset($firsttime))
+	{
+		$firsttime = NULL;
+	}
+							      
+	if($firsttime != 'yes')
+	{
+		$firsttimeyes = 0;
+		$firsttimeno = 'checked';
+	}
+	else
+	{
+		$firsttimeyes = 'checked';
+		$firsttimeno = 0;
+	}
+							       ?>
+							       
+				<?=form_radio('firsttime', 'Yes', $firsttimeyes); ?>
+				<?=form_radio('firsttime', 'No', $firsttimeno); ?>
+				</div>
+				
+				<div class="control-group">
 					<div>
 
 						<?php
@@ -52,6 +76,7 @@
 						Freehold
 					</div>
 				</div>
+				
 
 				<div class="control-group">
 					<div>
