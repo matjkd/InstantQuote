@@ -145,7 +145,7 @@ else {
 			endforeach;
 	
 		/* First time buyer discount */
-		if($data['firsttime']==0)){
+		if($data['firsttime']==0){
 		$firsttimediscount = 0;
 		}
 		else 
