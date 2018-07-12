@@ -131,7 +131,7 @@
           	<tbody>
           	<tr>
           		<td>Stamp Duty</td>
-          		<td> £<?= $newStamp ?></td>
+          		<td> £<?= $stamp_duty_before_discount ?></td>
           	</tr>
                
              	<tr>
