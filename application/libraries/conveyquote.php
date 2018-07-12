@@ -152,22 +152,26 @@ else {
 		{ 
 		if($data['purchasecost'] > 500000){
 		$firsttimediscount = 0;
+		$data['firsttimebuyer'] = 0;
 		}
 		if($data['purchasecost'] <= 500000){
 		$firsttimediscount = 5000;
+		$data['firsttimebuyer'] = 5000;
 		}
 		if($data['purchasecost'] <= 300000){
-		$firsttimediscount = $data['newstamp'];
+		$firsttimediscount = 0;
+		$data['firsttimebuyer'] = $data['newstamp'];
+		;
 		}
 		}
+		$data['newstamp']= $data['newstamp'] - $data['firsttimebuyer'];
 		
-		$data['firsttimediscount'] = $firsttimediscount;
 		/* end first time discount */
 		
             /* TOTAL PURCHASE */
             $data['feevat'] = ($data['purchase_fee'] + $data['banktransfer_purchase'] + $data['mortgagefee'] + $data['leaseholdfee'] + $data['stamp_duty_forms']) * $vat;
             $data['feevat'] = number_format($data['feevat'], 2, '.', '');
-            $data['totalpurchase'] = $data['purchase_fee'] + $data['leaseholdfee'] + $data['feevat'] + $data['land_fee'] + $data['newStamp'] + $data['banktransfer_purchase'] + $data['stamp_duty_forms'] + $data['mortgagefee'] + $data['landcharge'] + $data['localsearch'] + $data['priority_search'] - $data['firsttimediscount'];
+            $data['totalpurchase'] = $data['purchase_fee'] + $data['leaseholdfee'] + $data['feevat'] + $data['land_fee'] + $data['newStamp'] + $data['banktransfer_purchase'] + $data['stamp_duty_forms'] + $data['mortgagefee'] + $data['landcharge'] + $data['localsearch'] + $data['priority_search'];
             $data['totalpurchase'] = number_format($data['totalpurchase'], 2, '.', '');
 
             $purchasecount = 1;
