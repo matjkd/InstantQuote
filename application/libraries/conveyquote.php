@@ -25,7 +25,7 @@ $CI->load->model('admin_model');
 
  		$data['purchase_fee1'] = $purchasefee;
         $data['sale_fee1'] = $salefee;
-	    $data['firsttime'] = $firstbuyer;
+	    $data['firsttime'] = $this->input->post('firsttime');
 echo "test2 ".$data['firsttime'].$purchase;
         /* Get Variables */
 
