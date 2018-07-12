@@ -26,7 +26,7 @@ $CI->load->model('admin_model');
  		$data['purchase_fee1'] = $purchasefee;
         $data['sale_fee1'] = $salefee;
 	    $data['firsttime'] = $firstbuyer;
-echo "test2 ".$data['firsttime'].$purchase;
+
         /* Get Variables */
 
         $data['variables'] = $CI->admin_model->get_variables();
@@ -159,7 +159,7 @@ else {
 		if($data['purchasecost'] <= 300000){
 		$firsttimediscount = $data['newstamp'];
 		}
-		
+		}
 		
 		$data['firsttimediscount'] = $firsttimediscount;
 		/* end first time discount */
