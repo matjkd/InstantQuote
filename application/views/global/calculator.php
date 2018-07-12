@@ -1,6 +1,6 @@
 <?php $is_logged_in = $this->session->userdata('is_logged_in');
 						$level = $this->session->userdata('role');
-echo $firsttime." test ".$purchasecost; ?>
+
 <?=form_open('quote/onscreen') ?>
 <div class="accordion" id="accordion2">
 	<div class="accordion-group">
@@ -43,8 +43,8 @@ echo $firsttime." test ".$purchasecost; ?>
 	}
 	else
 	{
-		
-		$firsttimeno = 0;
+		$firsttimeyes = 'checked'
+		$firsttimeno = NULL;
 	}
 							       ?>
 							       
