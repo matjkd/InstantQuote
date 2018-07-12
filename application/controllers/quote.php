@@ -49,7 +49,7 @@ class Quote extends MY_Controller {
         $purchasefee = $this->input->post('buying_fees');
         $salefee = $this->input->post('selling_fees');
 	$firsttime = $this->input->post('firsttime');
-echo $firsttime;
+echo "test ".$firsttime;
         /* calculate here */
         
        $this->conveyquote->quote($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee, $firsttime);
