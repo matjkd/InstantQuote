@@ -49,7 +49,9 @@
 							       ?>
 							       
 				<?=form_radio('firsttime', 'Yes', $firsttimeyes); ?>
+					Yes &nbsp; &nbsp;
 				<?=form_radio('firsttime', 'No', $firsttimeno); ?>
+					No
 				</div>
 				<?php } ?>
 				
