@@ -2,7 +2,7 @@
 
 class ConveyQuote {
 
-    public function quote($purchase=0, $leasehold=0, $mortgage=0, $salecost=0, $leaseholdsale=0, $purchasefee=0, $salefee=0, $localsearch=0)
+    public function quote($purchase=0, $leasehold=0, $mortgage=0, $salecost=0, $leaseholdsale=0, $purchasefee=0, $salefee=0, $localsearch=0, $firsttime=0)
     {
          /* Add form validation here */
          $CI =& get_instance();
@@ -25,6 +25,7 @@ $CI->load->model('admin_model');
 
  		$data['purchase_fee1'] = $purchasefee;
         $data['sale_fee1'] = $salefee;
+	    $data['firsttime'] = $firsttime;
 
         /* Get Variables */
 
