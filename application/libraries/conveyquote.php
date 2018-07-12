@@ -160,11 +160,11 @@ else {
 		}
 		if($data['purchasecost'] <= 300000){
 		$firsttimediscount = 0;
-		$data['firsttimebuyer'] = $data['newstamp'];
+		$data['firsttimebuyer'] = $data['newStamp'];
 		;
 		}
 		}
-		$data['newstamp']= $data['newstamp'] - $data['firsttimebuyer'];
+		$data['newStamp']= $data['newStamp'] - $data['firsttimebuyer'];
 		
 		/* end first time discount */
 		
