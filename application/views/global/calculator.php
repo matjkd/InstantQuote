@@ -35,7 +35,7 @@
 		$firsttime = NULL;
 	}
 							      
-	if($firsttime != 'yes')
+	if($firsttime != '1')
 	{
 		$firsttimeyes = 0;
 		$firsttimeno = 'checked';
