@@ -133,6 +133,14 @@
           		<td>Stamp Duty</td>
           		<td> £<?= $newStamp ?></td>
           	</tr>
+               
+             	<tr>
+          		<td>First Time Buyer Discount</td>
+          		<td> £<?= $firsttimebuyer ?></td>
+          	</tr>
+              
+                
+                
           	<tr>
           		<td>Land Registry</td>
           		<td>£<?= $land_fee ?></td>
