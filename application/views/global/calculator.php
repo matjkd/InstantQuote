@@ -25,9 +25,8 @@
 						</div>
 					</div>
 				</div>
-				<?php
-						if($is_logged_in!=NULL || $level == 1)
-						{ ?>
+				
+						
 				<div class="control-group">
 					<label class="control_label" for="inputIcon">First Time Buyer?</label>
 					<?php
@@ -53,7 +52,7 @@
 				<?=form_radio('firsttime', 'No', $firsttimeno); ?>
 					No
 				</div>
-				<?php } ?>
+				
 				
 				<div class="control-group">
 					<div>
