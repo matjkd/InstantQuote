@@ -149,9 +149,9 @@ else {
 		$firsttimediscount = 0;
 		}
 		else 
-		{
+		{ */
 		if($data['purchasecost'] > 500000){
-			$firsttimediscount = 0;
+		$firsttimediscount = 0;
 		}
 		if($data['purchasecost'] <= 500000){
 		$firsttimediscount = 5000;
@@ -159,10 +159,10 @@ else {
 		if($data['purchasecost'] <= 300000){
 		$firsttimediscount = $data['newstamp'];
 		}
-		}
+		
 		
 		$data['firsttimediscount'] = $firsttimediscount;
-		end first time discount */
+		/* end first time discount */
 		
             /* TOTAL PURCHASE */
             $data['feevat'] = ($data['purchase_fee'] + $data['banktransfer_purchase'] + $data['mortgagefee'] + $data['leaseholdfee'] + $data['stamp_duty_forms']) * $vat;
