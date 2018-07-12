@@ -144,7 +144,7 @@ else {
 						
 			endforeach;
 	
-		/* First time buyer discount */
+		/* First time buyer discount 
 		if($data['firsttime']==0)){
 		$firsttimediscount = 0;
 		}
@@ -162,7 +162,7 @@ else {
 		}
 		
 		$data['firsttimediscount'] = $firsttimediscount;
-		/* end first time discount */
+		end first time discount */
 		
             /* TOTAL PURCHASE */
             $data['feevat'] = ($data['purchase_fee'] + $data['banktransfer_purchase'] + $data['mortgagefee'] + $data['leaseholdfee'] + $data['stamp_duty_forms']) * $vat;
