@@ -26,7 +26,7 @@ $CI->load->model('admin_model');
  		$data['purchase_fee1'] = $purchasefee;
         $data['sale_fee1'] = $salefee;
 	    $data['firsttime'] = $firsttime;
-
+echo "test2 ".$firsttime;
         /* Get Variables */
 
         $data['variables'] = $CI->admin_model->get_variables();
