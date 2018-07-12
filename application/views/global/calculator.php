@@ -43,7 +43,7 @@
 	}
 	else
 	{
-		$firsttimeyes = 'checked'
+		$firsttimeyes = 'checked';
 		$firsttimeno = NULL;
 	}
 							       ?>
