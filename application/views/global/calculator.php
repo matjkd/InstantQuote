@@ -38,12 +38,12 @@ echo $firsttime." test ".$purchasecost; ?>
 							      
 	if($firsttime != '1')
 	{
-		$firsttimeyes = 0;
+		$firsttimeyes = NULL;
 		$firsttimeno = 'checked';
 	}
 	else
 	{
-		$firsttimeyes = 'checked';
+		
 		$firsttimeno = 0;
 	}
 							       ?>
