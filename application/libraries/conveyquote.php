@@ -2,7 +2,7 @@
 
 class ConveyQuote {
 
-    public function quote($purchase=0, $leasehold=0, $mortgage=0, $salecost=0, $leaseholdsale=0, $purchasefee=0, $salefee=0, $localsearch=0, $firsttime=2)
+    public function quote($purchase=0, $leasehold=0, $mortgage=0, $salecost=0, $leaseholdsale=0, $purchasefee=0, $salefee=0, $localsearch=0, $firsttime)
     {
          /* Add form validation here */
          $CI =& get_instance();
