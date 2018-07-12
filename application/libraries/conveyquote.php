@@ -147,6 +147,7 @@ else {
 		/* First time buyer discount */
 		if($data['firsttime']==0){
 		$firsttimediscount = 0;
+		$data['firsttimebuyer'] = 0;
 		}
 		else 
 		{ 
