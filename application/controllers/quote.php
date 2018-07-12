@@ -48,10 +48,11 @@ class Quote extends MY_Controller {
         $leaseholdsale = $this->input->post('leaseholdsale');
         $purchasefee = $this->input->post('buying_fees');
         $salefee = $this->input->post('selling_fees');
+	$firsttime = $this->input->post('firsttime');
 
         /* calculate here */
         
-       $this->conveyquote->quote($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee);
+       $this->conveyquote->quote($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee, $firsttime);
 
         if (isset($this->alertmessage)) {
             $data['message'] = $this->alertmessage;
@@ -77,6 +78,7 @@ class Quote extends MY_Controller {
         $leaseholdsale = $this->input->post('leaseholdsale');
         $purchasefee = $this->input->post('buying_fees');
         $salefee = $this->input->post('selling_fees');
+	$firsttime = $this->input->post('firsttime');
 
         /* Get terms */
         $data['content'] = $this->content_model->get_content('terms');
@@ -86,7 +88,7 @@ class Quote extends MY_Controller {
 
         endforeach;
         /* calculate here */
-        $this->conveyquote->quote($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee);
+        $this->conveyquote->quote($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee, $firsttime);
         $this->load->helper(array('dompdf', 'file'));
 
         $data['main'] = "quote/results";
@@ -171,6 +173,7 @@ class Quote extends MY_Controller {
             $leaseholdsale = $this->input->post('leaseholdsale');
             $purchasefee = $this->input->post('buying_fees');
             $salefee = $this->input->post('selling_fees');
+	    $firsttime = $this->input->post('firsttime');
 
             /* Get terms */
             $data['content'] = $this->content_model->get_content('terms');
@@ -183,7 +186,7 @@ class Quote extends MY_Controller {
 
 
             /* calculate here  */
-            $this->conveyquote->quote($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee);
+            $this->conveyquote->quote($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee, $firsttime);
             $this->load->helper(array('dompdf', 'file'));
             $this->load->helper('file');
 
@@ -276,6 +279,7 @@ class Quote extends MY_Controller {
             $leaseholdsale = $this->input->post('leaseholdsale');
             $purchasefee = $this->input->post('buying_fees');
             $salefee = $this->input->post('selling_fees');
+		$firsttime = $this->input->post('firsttime');
 
             /* Get terms */
             $data['content'] = $this->content_model->get_content('terms');
@@ -285,7 +289,7 @@ class Quote extends MY_Controller {
 
             endforeach;
             /* calculate here  */
-            $this->conveyquote->quote($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee);
+            $this->conveyquote->quote($purchasecost, $leasehold, $mortgage, $salecost, $leaseholdsale, $purchasefee, $salefee, $firsttime);
             $this->load->helper(array('dompdf', 'file'));
             $this->load->helper('file');
 
