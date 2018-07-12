@@ -56,7 +56,7 @@ if ($purchasecost != NULL) {
             <div class="resultvalue">£<?= $feevat ?></div>
 
             <div class="results">
-                <strong>Other Costs</strong><br/>
+                <strong>Other Costs.</strong><br/>
 
 
                 <div class="resultlabel">Stamp Duty</div>
