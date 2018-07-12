@@ -140,7 +140,8 @@ else {
 					$er = $remain;
 					//echo "<br/><br/>".$er;
 				}
-				$data['stamp_fee'] = $data['newStamp'];
+				$data['stamp_fee'] = $data['newStamp']
+				$data['stamp_duty_before_discount'] = $data['stamp_fee'];
 						
 			endforeach;
 	
