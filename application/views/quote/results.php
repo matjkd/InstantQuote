@@ -61,7 +61,9 @@ if ($purchasecost != NULL) {
 
                 <div class="resultlabel">Stamp Duty</div>
                 <div class="resultvalue">£<?= $stamp_fee ?></div>
-
+                
+                <div class="resultlabel">First Time Buyer Discount</div>
+                <div class="resultvalue">£<?= $firsttimebuyer ?></div>
 
                 <div class="resultlabel">Land Registry</div>
                 <div class="resultvalue">£<?= $land_fee ?></div>
