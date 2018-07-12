@@ -165,6 +165,7 @@ else {
 		}
 		}
 		$data['newStamp']= $data['newStamp'] - $data['firsttimebuyer'];
+		$data['stamp_fee'] = $data['newStamp'];
 		
 		/* end first time discount */
 		
