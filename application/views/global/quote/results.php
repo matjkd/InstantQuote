@@ -131,13 +131,10 @@
           	<tbody>
           	<tr>
           		<td>Stamp Duty</td>
-          		<td> £<?= $stamp_duty_before_discount ?></td>
+          		<td> £<?= $stamp_fee ?></td>
           	</tr>
                
-             	<tr>
-          		<td>First Time Buyer Discount</td>
-          		<td> £<?= $firsttimebuyer ?></td>
-          	</tr>
+             	
               
                 
                 
