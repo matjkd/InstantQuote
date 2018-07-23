@@ -93,6 +93,10 @@
 		$leaseholdsaleno = 0;
 	}
 ?>
+<?php 
+	
+?>
+	<?=form_hidden('firsttime', $firsttime)?>
 <?=form_hidden('leaseholdsale', $leaseholdsale) ?>
 
 <a href="" onclick="$(this).closest('form').submit()" class="btn-large btn color-bg" type="button"
