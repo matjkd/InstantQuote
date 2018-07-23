@@ -103,6 +103,7 @@
     $leaseholdsaleyes = 1;
     $leaseholdsaleno = 0;
 } ?>
+<?= form_hidden('firsttime', $firsttime) ?>
 <?= form_hidden('leaseholdsale', $leaseholdsale) ?>           
        
         *required
