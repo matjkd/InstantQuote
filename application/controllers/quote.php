@@ -306,8 +306,8 @@ class Quote extends MY_Controller {
 
 
             //TEMP
-            $email_address = "test@matsadler.com";
-
+            $email_address = $this->input->post('email');
+            $clientemail = $this->input->post('email');
             $name = $this->input->post('firstname') . " " . $this->input->post('lastname');
             $comments = $this->input->post('comments');
             $address = set_value('address');
